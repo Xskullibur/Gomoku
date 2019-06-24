@@ -13,6 +13,8 @@ namespace Gomoku
 {
     public partial class Form1 : Form
     {
+        public DIFFICULTY cDifficulty = new DIFFICULTY();
+
         string IMAGE_PATH = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory().ToString()).ToString()) + "\\img";
 
         const int BOARD_WIDTH = 15;
@@ -21,12 +23,57 @@ namespace Gomoku
         const string PLAYER_DIE = "black_die.png";
         const string PLAYER_SYMBOL = "o";
 
-        const string COMPUTER_DIE = "white.die.png";
+        const string COMPUTER_DIE = "white_die.png";
         const string COMPUTER_SYMBOL = "x";
 
         string[,] GAME_BOARD = new string[BOARD_WIDTH, BOARD_HEIGHT];
 
+        public Form1(DIFFICULTY difficulty)
+        {
+            InitializeComponent();
+            cDifficulty = difficulty;
+            generateBoard();
+        }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show($"Difficulty from Form1: {cDifficulty.ToString()}");
+        }
+
+        /**
+         * Global Functions
+         **/
+
+        // Generate New Game Board
+        public void generateBoard()
+        {
+            int startX = 10;
+            int startY = 10;
+            int btnHeight = 35;
+            int btnWidth = 35;
+            int dist = 10;
+
+            for (int x = 0; x < BOARD_WIDTH; x++)
+            {
+                for (int y = 0; y < BOARD_HEIGHT; y++)
+                {
+                    Button btn = new Button();
+                    btn.BackColor = Color.SandyBrown;
+                    btn.Name = $"{x}-{y}_btn";
+                    btn.TabStop = false;
+                    btn.Click += button_click;
+
+                    btn.Top = startX + (x * btnHeight + dist);
+                    btn.Left = startY + (y * btnWidth + dist);
+                    btn.Width = btnWidth;
+                    btn.Height = btnHeight;
+
+                    gamePanel.Controls.Add(btn);
+                }
+            }
+        }
+        
+        // Check Win Condition
         public bool winCondition(string symbol)
         {
 
@@ -163,34 +210,70 @@ namespace Gomoku
             return false; 
         }
 
-        public void generateBoard()
+        // Reset and Generate New Game Board
+        private void reset_board()
         {
-            int startX = 10;
-            int startY = 10;
-            int btnHeight = 35;
-            int btnWidth = 35;
-            int dist = 10;
-
-            for (int x = 0; x < BOARD_WIDTH; x++)
+            foreach (Control control in gamePanel.Controls)
             {
-                for (int y = 0; y < BOARD_HEIGHT; y++)
+                control.BackgroundImage = null;
+                control.Enabled = true;
+            }
+
+            for (int col = 0; col < BOARD_WIDTH-1; col++)
+            {
+                for (int row = 0; row < BOARD_HEIGHT-1; row++)
                 {
-                    Button btn = new Button();
-                    btn.BackColor = Color.SandyBrown;
-                    btn.Name = $"{x}-{y}_btn";
-                    btn.TabStop = false;
-                    btn.Click += button_click;
-
-                    btn.Top = startX + (x * btnHeight + dist);
-                    btn.Left = startY + (y * btnWidth + dist);
-                    btn.Width = btnWidth;
-                    btn.Height = btnHeight;
-
-                    gamePanel.Controls.Add(btn);
+                    GAME_BOARD[row, col] = "";
                 }
             }
         }
+        
+        // Computer's Turn
+        private void computer_turn()
+        {
+            Random random = new Random();
+            int xCoords = 0, yCoords = 0;
 
+            switch (cDifficulty)
+            {
+                case DIFFICULTY.EASY:
+
+                    do
+                    {
+                        xCoords = random.Next(BOARD_WIDTH);
+                        yCoords = random.Next(BOARD_HEIGHT);
+                    } while (GAME_BOARD[xCoords, yCoords] != null);
+
+                    break;
+
+                case DIFFICULTY.NORMAL:
+                    break;
+
+                case DIFFICULTY.HARD:
+                    break;
+
+                default:
+                    break;
+            }
+
+            GAME_BOARD[xCoords, yCoords] = COMPUTER_SYMBOL;
+
+            Button btn = (Button)gamePanel.Controls.Find($"{xCoords}-{yCoords}_btn", true).First();
+            btn.BackgroundImage = Image.FromFile($"{IMAGE_PATH}\\{COMPUTER_DIE}");
+            btn.BackgroundImageLayout = ImageLayout.Stretch;
+            btn.Enabled = false;
+
+            if (winCondition(COMPUTER_SYMBOL))
+            {
+                MessageBox.Show("Computer Wins");
+            }
+        }
+
+        /**
+         * Main Actions
+         **/
+
+        // Player Click
         private void button_click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -214,39 +297,23 @@ namespace Gomoku
             {
                 MessageBox.Show("Player Wins!");
             }
-        }
-
-        private void reset_board()
-        {
-            foreach (Control control in gamePanel.Controls)
+            else
             {
-                control.BackgroundImage = null;
-                control.Enabled = true;
-            }
-
-            for (int col = 0; col < BOARD_WIDTH-1; col++)
-            {
-                for (int row = 0; row < BOARD_HEIGHT-1; row++)
-                {
-                    GAME_BOARD[row, col] = "";
-                }
+                computer_turn();
             }
         }
 
-        public Form1()
-        {
-            InitializeComponent();
-            generateBoard();
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void resetToolStripMenuItem_Click_1(object sender, EventArgs e)
+        /**
+         * Menu Actions
+         **/
+        private void newGame_Click(object sender, EventArgs e)
         {
             reset_board();
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
