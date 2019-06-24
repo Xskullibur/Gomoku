@@ -228,25 +228,113 @@ namespace Gomoku
             }
         }
         
-        // Computer's Turn
-        private void computer_turn()
+        // Easy BOT
+        private int[] easyBOT()
         {
             Random random = new Random();
             int xCoords = 0, yCoords = 0;
 
+            do
+            {
+                xCoords = random.Next(BOARD_WIDTH);
+                yCoords = random.Next(BOARD_HEIGHT);
+            } while (GAME_BOARD[xCoords, yCoords] != null);
+
+            return new int[]{xCoords, yCoords};
+        }
+
+        private int[] normalBOT()
+        {
+
+            bool coordsFound = false;
+            int sRow = 0;
+            int sCol = 0;
+
+            /*****      Check Horizontal Victory        *****/
+            for (int row = 0; row < BOARD_HEIGHT; row++)        // All Rows
+            {
+                for (int col = 0; col < BOARD_WIDTH - 4; col++)   // First 6 col (Prevent Crash From col 7 onwards)
+                {
+
+                    if (GAME_BOARD[row, col] == PLAYER_SYMBOL)         // Check for symbol
+                    {
+
+                        int diesInRow = 0;
+
+                        for (int i = 1; i < 3; i++)             // Check Next 4 Col
+                        {
+                            if (GAME_BOARD[row, col] == GAME_BOARD[row, col + i])
+                            {
+                                diesInRow++;                    // Count the number of times in a row
+                            }
+                            else
+                            {
+                                break;                          // Stop the loop if not in a row
+                            }
+                        }
+
+                        if (diesInRow == 2)
+                        {
+                            // Check front
+                            if (col-1 >= 0)
+                            {
+                                if (GAME_BOARD[row, col-1] == null)
+                                {
+                                    sRow = row;
+                                    sCol = col - 1;
+                                    coordsFound = true;
+                                    break;
+                                }
+                            }
+
+                            // Check back
+                            if (col+3 < BOARD_WIDTH)
+                            {
+                                if (GAME_BOARD[row, col+3] == null)
+                                {
+                                    sRow = row;
+                                    sCol = col + 3;
+                                    coordsFound = true;
+                                    break;
+                                }
+                            }
+                        }
+
+                    }
+
+                }
+
+                if (coordsFound)
+                {
+                    break;
+                }
+
+            }
+
+            if (coordsFound)
+            {
+                return new int[] { sRow, sCol };
+            }
+            else
+            {
+                return easyBOT();
+            }
+
+        }
+
+        // Computer's Turn
+        private void computer_turn()
+        {
+            List<int> coords = new List<int>();
+
             switch (cDifficulty)
             {
                 case DIFFICULTY.EASY:
-
-                    do
-                    {
-                        xCoords = random.Next(BOARD_WIDTH);
-                        yCoords = random.Next(BOARD_HEIGHT);
-                    } while (GAME_BOARD[xCoords, yCoords] != null);
-
+                    coords = easyBOT().ToList();
                     break;
 
                 case DIFFICULTY.NORMAL:
+                    coords = normalBOT().ToList();
                     break;
 
                 case DIFFICULTY.HARD:
@@ -256,9 +344,11 @@ namespace Gomoku
                     break;
             }
 
-            GAME_BOARD[xCoords, yCoords] = COMPUTER_SYMBOL;
+            Console.WriteLine($"{coords.ElementAt(0)}, {coords.ElementAt(1)}");
 
-            Button btn = (Button)gamePanel.Controls.Find($"{xCoords}-{yCoords}_btn", true).First();
+            GAME_BOARD[coords.ElementAt(0), coords.ElementAt(1)] = COMPUTER_SYMBOL;
+
+            Button btn = (Button)gamePanel.Controls.Find($"{coords.ElementAt(0)}-{coords.ElementAt(1)}_btn", true).First();
             btn.BackgroundImage = Image.FromFile($"{IMAGE_PATH}\\{COMPUTER_DIE}");
             btn.BackgroundImageLayout = ImageLayout.Stretch;
             btn.Enabled = false;
