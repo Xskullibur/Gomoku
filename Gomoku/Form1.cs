@@ -17,8 +17,7 @@ namespace Gomoku
 
         string IMAGE_PATH = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory().ToString()).ToString()) + "\\img";
 
-        const int BOARD_WIDTH = 15;
-        const int BOARD_HEIGHT = 15;
+        const int BOARD_DIMENTION = 15;
 
         const string PLAYER_DIE = "black_die.png";
         const string PLAYER_SYMBOL = "o";
@@ -26,7 +25,7 @@ namespace Gomoku
         const string COMPUTER_DIE = "white_die.png";
         const string COMPUTER_SYMBOL = "x";
 
-        string[,] GAME_BOARD = new string[BOARD_WIDTH, BOARD_HEIGHT];
+        string[,] GAME_BOARD = new string[BOARD_DIMENTION, BOARD_DIMENTION];
 
         public Form1(DIFFICULTY difficulty)
         {
@@ -53,9 +52,9 @@ namespace Gomoku
             int btnWidth = 35;
             int dist = 10;
 
-            for (int x = 0; x < BOARD_WIDTH; x++)
+            for (int x = 0; x < BOARD_DIMENTION; x++)
             {
-                for (int y = 0; y < BOARD_HEIGHT; y++)
+                for (int y = 0; y < BOARD_DIMENTION; y++)
                 {
                     Button btn = new Button();
                     btn.BackColor = Color.SandyBrown;
@@ -78,9 +77,9 @@ namespace Gomoku
         {
 
             /*****      Check Horizontal Victory        *****/
-            for (int row = 0; row < BOARD_HEIGHT; row++)        // All Rows
+            for (int row = 0; row < BOARD_DIMENTION; row++)        // All Rows
             {
-                for (int col = 0; col < BOARD_WIDTH-4; col++)   // First 6 col (Prevent Crash From col 7 onwards)
+                for (int col = 0; col < BOARD_DIMENTION-4; col++)   // First 6 col (Prevent Crash From col 7 onwards)
                 {
 
                     if (GAME_BOARD[row, col] == symbol)         // Check for symbol
@@ -111,9 +110,9 @@ namespace Gomoku
             }
 
             /*****      Check Vertical Victory          *****/
-            for (int col = 0; col < BOARD_WIDTH; col++)         // All Cols
+            for (int col = 0; col < BOARD_DIMENTION; col++)         // All Cols
             {
-                for (int row = 0; row < BOARD_HEIGHT-4; row++)  // First 6 Rows (Prevent Crash at row 7 onwards)
+                for (int row = 0; row < BOARD_DIMENTION-4; row++)  // First 6 Rows (Prevent Crash at row 7 onwards)
                 {
 
                     if (GAME_BOARD[row, col] == symbol)         // Check Symbol
@@ -144,9 +143,9 @@ namespace Gomoku
             }
 
             /*****      Check Top-Left Diagonal Victory          *****/
-            for (int col = 0; col < BOARD_WIDTH-4; col++)
+            for (int col = 0; col < BOARD_DIMENTION-4; col++)
             {
-                for (int row = 0; row < BOARD_HEIGHT-4; row++)
+                for (int row = 0; row < BOARD_DIMENTION-4; row++)
                 {
 
                     if (GAME_BOARD[row, col] == symbol)
@@ -177,9 +176,9 @@ namespace Gomoku
             }
 
             /*****      Check Bottom-Right Diagonal Victory          *****/
-            for (int row = BOARD_HEIGHT-1; row > 4; row--)
+            for (int row = BOARD_DIMENTION-1; row > 4; row--)
             {
-                for (int col = 0; col < BOARD_WIDTH-4; col++)
+                for (int col = 0; col < BOARD_DIMENTION-4; col++)
                 {
                     if (GAME_BOARD[row, col] == symbol)
                     {
@@ -219,16 +218,20 @@ namespace Gomoku
                 control.Enabled = true;
             }
 
-            for (int col = 0; col < BOARD_WIDTH-1; col++)
+            for (int col = 0; col < BOARD_DIMENTION-1; col++)
             {
-                for (int row = 0; row < BOARD_HEIGHT-1; row++)
+                for (int row = 0; row < BOARD_DIMENTION-1; row++)
                 {
                     GAME_BOARD[row, col] = "";
                 }
             }
+
+            this.Close();
+            GameSettings gameSettings = new GameSettings();
+            gameSettings.ShowDialog();
         }
-        
-        // Easy BOT
+
+        // Difficulty Computer Turns
         private int[] easyBOT()
         {
             Random random = new Random();
@@ -236,8 +239,8 @@ namespace Gomoku
 
             do
             {
-                xCoords = random.Next(BOARD_WIDTH);
-                yCoords = random.Next(BOARD_HEIGHT);
+                xCoords = random.Next(BOARD_DIMENTION);
+                yCoords = random.Next(BOARD_DIMENTION);
             } while (GAME_BOARD[xCoords, yCoords] != null);
 
             return new int[]{xCoords, yCoords};
@@ -251,9 +254,9 @@ namespace Gomoku
             int sCol = 0;
 
             /*****      Check Horizontal Victory        *****/
-            for (int row = 0; row < BOARD_HEIGHT; row++)        // All Rows
+            for (int row = 0; row < BOARD_DIMENTION; row++)        // All Rows
             {
-                for (int col = 0; col < BOARD_WIDTH - 2; col++)   // First 6 col (Prevent Crash From col 7 onwards)
+                for (int col = 0; col < BOARD_DIMENTION - 2; col++)   // First 6 col (Prevent Crash From col 7 onwards)
                 {
 
                     if (GAME_BOARD[row, col] == PLAYER_SYMBOL)         // Check for symbol
@@ -261,7 +264,7 @@ namespace Gomoku
 
                         int diesInRow = 0;
 
-                        for (int i = 1; i < 3; i++)             // Check Next 4 Col
+                        for (int i = 1; i < 2; i++)             // Check Next 4 Col
                         {
                             if (GAME_BOARD[row, col] == GAME_BOARD[row, col + i])
                             {
@@ -273,7 +276,7 @@ namespace Gomoku
                             }
                         }
 
-                        if (diesInRow == 2)
+                        if (diesInRow == 1)
                         {
                             // Check front
                             if (col-1 >= 0)
@@ -288,12 +291,12 @@ namespace Gomoku
                             }
 
                             // Check back
-                            if (col+3 < BOARD_WIDTH)
+                            if (col+3 < BOARD_DIMENTION)
                             {
-                                if (GAME_BOARD[row, col+3] == null)
+                                if (GAME_BOARD[row, col+2] == null)
                                 {
                                     sRow = row;
-                                    sCol = col + 3;
+                                    sCol = col + 2;
                                     coordsFound = true;
                                     break;
                                 }
@@ -314,9 +317,9 @@ namespace Gomoku
             /*****      Check Vertical Victory          *****/
             if (!coordsFound)
             {
-                for (int col = 0; col < BOARD_WIDTH; col++)         // All Cols
+                for (int col = 0; col < BOARD_DIMENTION; col++)         // All Cols
                 {
-                    for (int row = 0; row < BOARD_HEIGHT - 2; row++)  // First 6 Rows (Prevent Crash at row 7 onwards)
+                    for (int row = 0; row < BOARD_DIMENTION - 2; row++)  // First 6 Rows (Prevent Crash at row 7 onwards)
                     {
 
                         if (GAME_BOARD[row, col] == PLAYER_SYMBOL)         // Check Symbol
@@ -324,7 +327,7 @@ namespace Gomoku
 
                             int diesInRow = 0;
 
-                            for (int i = 1; i < 3; i++)             // Check next 4 rows
+                            for (int i = 1; i < 2; i++)             // Check next 4 rows
                             {
                                 if (GAME_BOARD[row, col] == GAME_BOARD[row + i, col])
                                 {
@@ -336,7 +339,7 @@ namespace Gomoku
                                 }
                             }
 
-                            if (diesInRow == 2)
+                            if (diesInRow == 1)
                             {
                                 // Check front
                                 if (row - 1 >= 0)
@@ -351,11 +354,11 @@ namespace Gomoku
                                 }
 
                                 // Check back
-                                if (row + 3 < BOARD_WIDTH)
+                                if (row + 3 < BOARD_DIMENTION)
                                 {
-                                    if (GAME_BOARD[row + 3, col] == null)
+                                    if (GAME_BOARD[row + 2, col] == null)
                                     {
-                                        sRow = row + 3;
+                                        sRow = row + 2;
                                         sCol = col;
                                         coordsFound = true;
                                         break;
@@ -371,115 +374,152 @@ namespace Gomoku
             /*****      Check Top-Left Diagonal Victory          *****/
             if (!coordsFound)
             {
-                for (int col = 0; col < BOARD_WIDTH - 4; col++)
+                for (int col = 0; col < BOARD_DIMENTION; col++)
                 {
-                    for (int row = 0; row < BOARD_HEIGHT - 4; row++)
+                    for (int row = 0; row < BOARD_DIMENTION; row++)
                     {
 
-                        if (GAME_BOARD[row, col] == PLAYER_SYMBOL)
+                        // Check if Over Board Limit
+                        if (col + 2 <= BOARD_DIMENTION - 1)
                         {
-
-                            int diesInRow = 0;
-
-                            for (int i = 1; i < 3; i++)
+                            if (row + 2 <= BOARD_DIMENTION - 1)
                             {
-                                if (GAME_BOARD[row, col] == GAME_BOARD[row + i, col + i])
+                                if (GAME_BOARD[row, col] == PLAYER_SYMBOL)
                                 {
-                                    diesInRow++;
-                                }
-                                else
-                                {
-                                    break;
+
+                                    int diesInRow = 0;
+
+                                    for (int i = 1; i < 2; i++)
+                                    {
+                                        if (GAME_BOARD[row, col] == GAME_BOARD[row + i, col + i])
+                                        {
+                                            diesInRow++;
+                                        }
+                                        else
+                                        {
+                                            break;
+                                        }
+                                    }
+
+                                    if (diesInRow == 1)
+                                    {
+                                        // Top-Left
+                                        if (row - 1 >= 0 && col - 1 >= 0)
+                                        {
+                                            if (GAME_BOARD[row - 1, col - 1] == null)
+                                            {
+                                                sRow = row - 1;
+                                                sCol = col - 1;
+                                                coordsFound = true;
+                                                break;
+                                            }
+                                        }
+
+                                        // Bottom-Right
+                                        if (!coordsFound)
+                                        {
+                                            if (row + 2 < BOARD_DIMENTION && col + 2 < BOARD_DIMENTION)
+                                            {
+                                                if (GAME_BOARD[row + 2, col + 2] == null)
+                                                {
+                                                    sRow = row + 2;
+                                                    sCol = col + 2;
+                                                    coordsFound = true;
+                                                    break;
+                                                }
+                                            } 
+                                        }
+                                    }
+
                                 }
                             }
-
-                            if (diesInRow == 2)
-                            {
-                                // Check front
-                                if (row - 1 >= 0 && col - 1 >= 0)
-                                {
-                                    if (GAME_BOARD[row - 1, col - 1] == null)
-                                    {
-                                        sRow = row - 1;
-                                        sCol = col - 1;
-                                        coordsFound = true;
-                                        break;
-                                    }
-                                }
-
-                                // Check back
-                                if (row + 3 < BOARD_WIDTH && col + 3 < BOARD_HEIGHT)
-                                {
-                                    if (GAME_BOARD[row + 3, col + 3] == null)
-                                    {
-                                        sRow = row + 3;
-                                        sCol = col + 3;
-                                        coordsFound = true;
-                                        break;
-                                    }
-                                }
-                            }
-
                         }
 
                     }
+
+                    if (coordsFound)
+                    {
+                        break;
+                    }
+
                 }
             }
 
-            /*****      Check Bottom-Left Diagonal Victory          *****/
+            ///*****      Check Bottom-Left Diagonal Victory          *****/
             if (!coordsFound)
             {
-                for (int row = BOARD_HEIGHT - 1; row > 4; row--)
+                for (int row = BOARD_DIMENTION-1; row >= 0; row--)                     // Row
                 {
-                    for (int col = 0; col < BOARD_WIDTH - 4; col++)
+
+                    for (int col = 0; col < BOARD_DIMENTION-1; col++)
                     {
-                        if (GAME_BOARD[row, col] == PLAYER_SYMBOL)
+                        if (row - 2 >= 0)
                         {
-
-                            int diesInRow = 0;
-
-                            for (int i = 1; i < 3; i++)
+                            if (col + 2 <= BOARD_DIMENTION)
                             {
-                                if (GAME_BOARD[row, col] == GAME_BOARD[row - i, col + i])
-                                {
-                                    diesInRow++;
-                                }
-                                else
-                                {
-                                    break;
-                                }
-                            }
 
-                            if (diesInRow == 2)
-                            {
-                                // Check back
-                                if (row + 1 <= BOARD_HEIGHT && col - 1 >= 0)
+                                if (GAME_BOARD[row, col] == PLAYER_SYMBOL)
                                 {
-                                    if (GAME_BOARD[row - 1, col - 1] == null)
+
+                                    int diesInRow = 0;
+
+                                    for (int i = 1; i < 2; i++)
                                     {
-                                        sRow = row + 1;
-                                        sCol = col - 1;
-                                        coordsFound = true;
-                                        break;
+                                        if (GAME_BOARD[row, col] == GAME_BOARD[row - i, col + i])
+                                        {
+                                            diesInRow++;
+                                        }
+                                        else
+                                        {
+                                            break;
+                                        }
                                     }
+
+                                    if (diesInRow == 1)
+                                    {
+
+                                        // Top-Right
+                                        if (row - 2 >= 0 && col + 2 <= BOARD_DIMENTION-1)
+                                        {
+                                            if (GAME_BOARD[row - 2, col + 2] == null)
+                                            {
+                                                sRow = row - 2;
+                                                sCol = col + 2;
+                                                coordsFound = true;
+                                                break;
+                                            }
+                                        }
+
+                                        // Bottom-Left
+                                        if (!coordsFound)
+                                        {
+                                            if (row + 1 <= BOARD_DIMENTION-1 && col - 1 >= 0)
+                                            {
+                                                if (GAME_BOARD[row + 1, col - 1] == null)
+                                                {
+                                                    sRow = row + 1;
+                                                    sCol = col - 1;
+
+                                                    coordsFound = true;
+                                                    break;
+                                                }
+                                            }
+                                        }
+
+                                    }
+
                                 }
 
-                                //// Check front
-                                //if (row - 3 >= 0 && col + 3 <= BOARD_WIDTH)
-                                //{
-                                //    if (GAME_BOARD[row - 3, col + 3] == null)
-                                //    {
-                                //        sRow = row - 3;
-                                //        sCol = col + 3;
-                                //        coordsFound = true;
-                                //        break;
-                                //    }
-                                //}
                             }
-
                         }
                     }
-                } 
+
+                    if (coordsFound)
+                    {
+                        break;
+                    }
+
+                }
             }
 
 
@@ -489,9 +529,14 @@ namespace Gomoku
             }
             else
             {
-                return easyBOT();
+                return new int[] { -1, -1 };
             }
 
+        }
+
+        private int[] hardBOT()
+        {
+            return new int[] { };
         }
 
         // Computer's Turn
@@ -507,6 +552,12 @@ namespace Gomoku
 
                 case DIFFICULTY.NORMAL:
                     coords = normalBOT().ToList();
+
+                    if (coords[0] == -1 && coords[1] == -1)
+                    {
+                        coords = easyBOT().ToList();
+                    }
+
                     break;
 
                 case DIFFICULTY.HARD:
