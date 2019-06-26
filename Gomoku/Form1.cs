@@ -105,8 +105,6 @@ namespace Gomoku
             }
 
             this.Close();
-            GameSettings gameSettings = new GameSettings();
-            gameSettings.ShowDialog();
         }
 
         /**
@@ -165,6 +163,11 @@ namespace Gomoku
                     break;
 
                 case DIFFICULTY.HARD:
+                    coords = GameLogic.hardBOT(GAME_BOARD).ToList();
+
+                    // Use EASY BOT if there is nothing to block
+                    if (coords[0] == -1 && coords[1] == -1)
+                        coords = GameLogic.easyBOT(GAME_BOARD).ToList();
                     break;
 
                 default:

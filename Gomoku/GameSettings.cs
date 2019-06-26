@@ -3,6 +3,7 @@ using System.Windows.Forms;
 
 namespace Gomoku
 {
+
     public enum DIFFICULTY
     {
         EASY, NORMAL, HARD
@@ -10,6 +11,8 @@ namespace Gomoku
 
     public partial class GameSettings : Form
     {
+
+        public GameSettings refGameSettings { get; set; }
 
         DIFFICULTY cDifficulty = new DIFFICULTY();
 
@@ -32,7 +35,6 @@ namespace Gomoku
         {
             Form1 form1 = new Form1(cDifficulty);
             form1.ShowDialog();
-            this.Close();
         }
     }
 }
