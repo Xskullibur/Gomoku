@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.difficultyCombo = new System.Windows.Forms.ComboBox();
             this.minimizeBtn = new System.Windows.Forms.Button();
+            this.scoreBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // exitBtn
@@ -98,7 +99,7 @@
             // minimizeBtn
             // 
             this.minimizeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.minimizeBtn.BackColor = System.Drawing.Color.CadetBlue;
+            this.minimizeBtn.BackColor = System.Drawing.Color.Teal;
             this.minimizeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.minimizeBtn.Font = new System.Drawing.Font("Kristen ITC", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.minimizeBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -111,12 +112,29 @@
             this.minimizeBtn.UseVisualStyleBackColor = false;
             this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);
             // 
+            // scoreBtn
+            // 
+            this.scoreBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.scoreBtn.AutoSize = true;
+            this.scoreBtn.BackColor = System.Drawing.Color.MediumPurple;
+            this.scoreBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.scoreBtn.Font = new System.Drawing.Font("Kristen ITC", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.scoreBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.scoreBtn.Location = new System.Drawing.Point(614, 392);
+            this.scoreBtn.Name = "scoreBtn";
+            this.scoreBtn.Size = new System.Drawing.Size(174, 46);
+            this.scoreBtn.TabIndex = 14;
+            this.scoreBtn.Text = "Highscore";
+            this.scoreBtn.UseVisualStyleBackColor = false;
+            this.scoreBtn.Click += new System.EventHandler(this.scoreBtn_Click);
+            // 
             // GameSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.scoreBtn);
             this.Controls.Add(this.minimizeBtn);
             this.Controls.Add(this.startBtn);
             this.Controls.Add(this.label2);
@@ -140,5 +158,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox difficultyCombo;
         private System.Windows.Forms.Button minimizeBtn;
+        private System.Windows.Forms.Button scoreBtn;
     }
 }

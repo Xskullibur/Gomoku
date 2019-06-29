@@ -15,10 +15,10 @@ namespace Gomoku
 
         string[] defaultScore = 
         {
-            "Number of Wins:0",
-            "Least Number of Turns To Win:0",
-            "Highest Win Streak:0",
-            "Win Streak:false"
+            "Number of Wins: 0",
+            "Least Number of Turns To Win: 0",
+            "Highest Win Streak: 0",
+            "Win Streak: false"
         };
 
         public Scoreboard()
@@ -142,6 +142,57 @@ namespace Gomoku
                 fileDetails[3] = $"{line4[0]}:{isWinStreak}";
                 File.WriteAllLines(checkFile, fileDetails);
             }
+        }
+
+        public string readEasy()
+        {
+            string returnStr = "";
+
+            string[] lines =  File.ReadAllLines(easyFile);
+            for (int i = 0; i < lines.Length-1; i++)
+            {
+                returnStr += lines[i];
+                if (i < lines.Length-1)
+                {
+                    returnStr += "\n";
+                }
+            }
+
+            return returnStr;
+        }
+
+        public string readNormal()
+        {
+            string returnStr = "";
+
+            string[] lines = File.ReadAllLines(normalFile);
+            for (int i = 0; i < lines.Length - 1; i++)
+            {
+                returnStr += lines[i];
+                if (i < lines.Length - 1)
+                {
+                    returnStr += "\n";
+                }
+            }
+
+            return returnStr;
+        }
+
+        public string readHard()
+        {
+            string returnStr = "";
+
+            string[] lines = File.ReadAllLines(hardFile);
+            for (int i = 0; i < lines.Length - 1; i++)
+            {
+                returnStr += lines[i];
+                if (i < lines.Length - 1)
+                {
+                    returnStr += "\n";
+                }
+            }
+
+            return returnStr;
         }
     }
 }

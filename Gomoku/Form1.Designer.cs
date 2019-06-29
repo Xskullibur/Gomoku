@@ -90,7 +90,7 @@
             // miminiseBtn
             // 
             this.miminiseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.miminiseBtn.BackColor = System.Drawing.Color.CadetBlue;
+            this.miminiseBtn.BackColor = System.Drawing.Color.Teal;
             this.miminiseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.miminiseBtn.Font = new System.Drawing.Font("Kristen ITC", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.miminiseBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
@@ -156,21 +156,21 @@
             // newGameToolStripMenuItem
             // 
             this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(182, 30);
             this.newGameToolStripMenuItem.Text = "&New Game";
             this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
             // 
             // menuToolStripMenuItem
             // 
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(252, 30);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(182, 30);
             this.menuToolStripMenuItem.Text = "Menu";
             this.menuToolStripMenuItem.Click += new System.EventHandler(this.menuToolStripMenuItem_Click_1);
             // 
             // exitToolStripMenuItem1
             // 
             this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(252, 30);
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(182, 30);
             this.exitToolStripMenuItem1.Text = "E&xit";
             this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
             // 
@@ -182,26 +182,26 @@
             this.menuContextStrip,
             this.exitContextStrip});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(241, 127);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(171, 94);
             // 
             // newGameContextStrip
             // 
             this.newGameContextStrip.Name = "newGameContextStrip";
-            this.newGameContextStrip.Size = new System.Drawing.Size(240, 30);
+            this.newGameContextStrip.Size = new System.Drawing.Size(170, 30);
             this.newGameContextStrip.Text = "New Game";
             this.newGameContextStrip.Click += new System.EventHandler(this.newGameContextStrip_Click);
             // 
             // menuContextStrip
             // 
             this.menuContextStrip.Name = "menuContextStrip";
-            this.menuContextStrip.Size = new System.Drawing.Size(240, 30);
+            this.menuContextStrip.Size = new System.Drawing.Size(170, 30);
             this.menuContextStrip.Text = "Menu";
             this.menuContextStrip.Click += new System.EventHandler(this.menuContextStrip_Click);
             // 
             // exitContextStrip
             // 
             this.exitContextStrip.Name = "exitContextStrip";
-            this.exitContextStrip.Size = new System.Drawing.Size(240, 30);
+            this.exitContextStrip.Size = new System.Drawing.Size(170, 30);
             this.exitContextStrip.Text = "Exit";
             this.exitContextStrip.Click += new System.EventHandler(this.exitContextStrip_Click);
             // 

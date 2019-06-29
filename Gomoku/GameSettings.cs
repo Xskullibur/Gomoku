@@ -48,5 +48,11 @@ namespace Gomoku
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void scoreBtn_Click(object sender, EventArgs e)
+        {
+            HighscoreForm highscoreForm = new HighscoreForm();
+            highscoreForm.Show();
+        }
     }
 }

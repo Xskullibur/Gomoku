@@ -1,4 +1,4 @@
-Number of Wins:4
-Least Number of Turns To Win:10
-Highest Win Streak:2
-Win Streak:False
+Number of Wins: 0
+Least Number of Turns To Win: 0
+Highest Win Streak: 0
+Win Streak: false
