@@ -121,8 +121,8 @@ namespace Gomoku
         }
 
 
-        // Generate Game Board
-        public void generateBoard()
+        // Game Actions
+        public void generateBoard()         
         {
             int startX = 60;
             int startY = gamePanel.Width / 2;
@@ -159,7 +159,6 @@ namespace Gomoku
         }
 
 
-        // Reset GAME_BOARD and regen UI
         public void reset_board()
         {
             foreach (Control control in gamePanel.Controls)
@@ -180,11 +179,6 @@ namespace Gomoku
             turnLbl.Text = turnStr + turnNumber;
         }
 
-        /**
-         *      Main Actions
-         **/
-
-        // Computer' Move
         private void computer_turn()
         {
             List<int> coords = new List<int>();
@@ -236,16 +230,12 @@ namespace Gomoku
             }
         }
 
+
         /**
          *      Menu Actions
          **/
-
-        private void newGame_Click(object sender, EventArgs e)
-        {
-            reset_board();
-        }
-
-        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
+        
+        private void showMenu()
         {
             this.Hide();
             GameSettings gameSettings = new GameSettings();
@@ -253,24 +243,50 @@ namespace Gomoku
             this.Close();
         }
 
-        private void closeApp()
+
+        // Toolbar (Toolbar Menu) Actions
+        private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            reset_board();
+        }
+
+        private void menuToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            showMenu();
+        }
+
+
+        // Context Strip (Right Click Menu) Actions
+        private void newGameContextStrip_Click(object sender, EventArgs e)
+        {
+            reset_board();
+        }
+
+        private void menuContextStrip_Click(object sender, EventArgs e)
+        {
+            showMenu();
+        }
+
+        private void exitContextStrip_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+
+        //Button Actions
         private void exitBtn_Click(object sender, EventArgs e)
         {
-            closeApp();
+            Application.Exit();
         }
 
         private void miminiseBtn_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void exit_Click(object sender, EventArgs e)
-        {
-            closeApp();
         }
     }
 }
