@@ -61,6 +61,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scoreboard.cs" />
     <Compile Include="victoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +102,9 @@
   <ItemGroup>
     <Content Include="img\black_die.png" />
     <Content Include="img\white_die.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="score\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

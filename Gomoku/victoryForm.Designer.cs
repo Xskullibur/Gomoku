@@ -31,9 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(victoryForm));
             this.victoryLbl = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.exitBtn = new System.Windows.Forms.Button();
+            this.turnLbl = new System.Windows.Forms.Label();
             this.menuBtn = new System.Windows.Forms.Button();
             this.newGameBtn = new System.Windows.Forms.Button();
-            this.exitBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,39 +55,14 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.turnLbl);
             this.panel1.Controls.Add(this.menuBtn);
             this.panel1.Controls.Add(this.newGameBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 285);
+            this.panel1.Location = new System.Drawing.Point(0, 265);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 165);
+            this.panel1.Size = new System.Drawing.Size(800, 185);
             this.panel1.TabIndex = 1;
-            // 
-            // menuBtn
-            // 
-            this.menuBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.menuBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.menuBtn.Font = new System.Drawing.Font("Kristen ITC", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuBtn.Location = new System.Drawing.Point(321, 85);
-            this.menuBtn.Name = "menuBtn";
-            this.menuBtn.Size = new System.Drawing.Size(158, 46);
-            this.menuBtn.TabIndex = 2;
-            this.menuBtn.Text = "Menu";
-            this.menuBtn.UseVisualStyleBackColor = false;
-            this.menuBtn.Click += new System.EventHandler(this.menuBtn_Click);
-            // 
-            // newGameBtn
-            // 
-            this.newGameBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.newGameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.newGameBtn.Font = new System.Drawing.Font("Kristen ITC", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.newGameBtn.Location = new System.Drawing.Point(321, 33);
-            this.newGameBtn.Name = "newGameBtn";
-            this.newGameBtn.Size = new System.Drawing.Size(158, 46);
-            this.newGameBtn.TabIndex = 1;
-            this.newGameBtn.Text = "New Game";
-            this.newGameBtn.UseVisualStyleBackColor = false;
-            this.newGameBtn.Click += new System.EventHandler(this.newGameBtn_Click);
             // 
             // exitBtn
             // 
@@ -103,6 +79,45 @@
             this.exitBtn.Text = "X";
             this.exitBtn.UseVisualStyleBackColor = false;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
+            // 
+            // turnLbl
+            // 
+            this.turnLbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.turnLbl.Font = new System.Drawing.Font("Kristen ITC", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.turnLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.turnLbl.Location = new System.Drawing.Point(17, 0);
+            this.turnLbl.Name = "turnLbl";
+            this.turnLbl.Size = new System.Drawing.Size(771, 44);
+            this.turnLbl.TabIndex = 10;
+            this.turnLbl.Text = "Score: ~";
+            this.turnLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // menuBtn
+            // 
+            this.menuBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.menuBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.menuBtn.Font = new System.Drawing.Font("Kristen ITC", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuBtn.Location = new System.Drawing.Point(321, 119);
+            this.menuBtn.Name = "menuBtn";
+            this.menuBtn.Size = new System.Drawing.Size(158, 46);
+            this.menuBtn.TabIndex = 9;
+            this.menuBtn.Text = "Menu";
+            this.menuBtn.UseVisualStyleBackColor = false;
+            this.menuBtn.Click += new System.EventHandler(this.menuBtn_Click);
+            // 
+            // newGameBtn
+            // 
+            this.newGameBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.newGameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.newGameBtn.Font = new System.Drawing.Font("Kristen ITC", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newGameBtn.Location = new System.Drawing.Point(321, 67);
+            this.newGameBtn.Name = "newGameBtn";
+            this.newGameBtn.Size = new System.Drawing.Size(158, 46);
+            this.newGameBtn.TabIndex = 8;
+            this.newGameBtn.Text = "New Game";
+            this.newGameBtn.UseVisualStyleBackColor = false;
+            this.newGameBtn.Click += new System.EventHandler(this.newGameBtn_Click);
             // 
             // victoryForm
             // 
@@ -128,8 +143,9 @@
 
         private System.Windows.Forms.Label victoryLbl;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button exitBtn;
+        private System.Windows.Forms.Label turnLbl;
         private System.Windows.Forms.Button menuBtn;
         private System.Windows.Forms.Button newGameBtn;
-        private System.Windows.Forms.Button exitBtn;
     }
 }

@@ -16,6 +16,9 @@ namespace Gomoku
         // Game Logic Class
         GameLogic GameLogic;
 
+        // Scoreboard
+        Scoreboard Scoreboard;
+
         // Img Folder Path
         string IMAGE_PATH = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory().ToString()).ToString()) + "\\img";
 
@@ -43,6 +46,7 @@ namespace Gomoku
             COMPUTER_DIE = $"{IMAGE_PATH}\\white_die.png";
 
             GameLogic = new GameLogic(difficulty);
+            Scoreboard = new Scoreboard();
             generateBoard();
         }
 
@@ -85,7 +89,9 @@ namespace Gomoku
             // Check Victory
             if (GameLogic.winCondition(GAME_BOARD, PLAYER_SYMBOL))
             {
-                victoryForm victoryForm = new victoryForm(victoryForm.users.player, this);
+                Scoreboard.updateRecords(turnNumber, GameLogic.cDifficulty);
+
+                victoryForm victoryForm = new victoryForm(victoryForm.users.player, turnNumber, this);
                 victoryForm.ShowDialog();
             }
             else
@@ -227,7 +233,9 @@ namespace Gomoku
             // Check Win Condition
             if (GameLogic.winCondition(GAME_BOARD, COMPUTER_SYMBOL))
             {
-                victoryForm victoryForm = new victoryForm(victoryForm.users.computer, this);
+                Scoreboard.updateLoseWinStreak(GameLogic.cDifficulty);
+
+                victoryForm victoryForm = new victoryForm(victoryForm.users.computer, turnNumber, this);
                 victoryForm.ShowDialog();
             }
         }

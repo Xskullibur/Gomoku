@@ -22,7 +22,7 @@ namespace Gomoku
         const string computerName = "Computer";
         Form1 form;
 
-        public victoryForm(users users, Form1 currentForm)
+        public victoryForm(users users, int turns, Form1 currentForm)
         {
             InitializeComponent();
             form = currentForm;
@@ -39,6 +39,8 @@ namespace Gomoku
                     victoryLbl.Text = "Victory!";
                     break;
             }
+
+            turnLbl.Text = $"Turns: {turns}";
         }
 
         private void newGameBtn_Click(object sender, EventArgs e)
