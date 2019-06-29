@@ -72,7 +72,7 @@
             // normalLbl
             // 
             this.normalLbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.normalLbl.Font = new System.Drawing.Font("Kristen ITC", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.normalLbl.Font = new System.Drawing.Font("Kristen ITC", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.normalLbl.Location = new System.Drawing.Point(0, 43);
             this.normalLbl.Name = "normalLbl";
             this.normalLbl.Size = new System.Drawing.Size(378, 149);
@@ -83,11 +83,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label2.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
             this.label2.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.label2.Size = new System.Drawing.Size(232, 43);
+            this.label2.Size = new System.Drawing.Size(250, 43);
             this.label2.TabIndex = 1;
             this.label2.Text = "Normal Difficulty:";
             // 
@@ -104,7 +104,7 @@
             // hardLbl
             // 
             this.hardLbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.hardLbl.Font = new System.Drawing.Font("Kristen ITC", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hardLbl.Font = new System.Drawing.Font("Kristen ITC", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hardLbl.Location = new System.Drawing.Point(0, 43);
             this.hardLbl.Name = "hardLbl";
             this.hardLbl.Size = new System.Drawing.Size(378, 162);
@@ -115,11 +115,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
             this.label3.Padding = new System.Windows.Forms.Padding(0, 0, 0, 10);
-            this.label3.Size = new System.Drawing.Size(206, 43);
+            this.label3.Size = new System.Drawing.Size(222, 43);
             this.label3.TabIndex = 1;
             this.label3.Text = "Hard Difficulty:";
             // 
@@ -136,7 +136,7 @@
             // easyLbl
             // 
             this.easyLbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.easyLbl.Font = new System.Drawing.Font("Kristen ITC", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.easyLbl.Font = new System.Drawing.Font("Kristen ITC", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.easyLbl.Location = new System.Drawing.Point(0, 63);
             this.easyLbl.Name = "easyLbl";
             this.easyLbl.Size = new System.Drawing.Size(378, 143);
@@ -147,11 +147,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(0, 20, 0, 10);
-            this.label1.Size = new System.Drawing.Size(198, 63);
+            this.label1.Size = new System.Drawing.Size(214, 63);
             this.label1.TabIndex = 0;
             this.label1.Text = "Easy Difficulty:";
             // 

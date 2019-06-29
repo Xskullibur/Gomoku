@@ -72,7 +72,7 @@ namespace Gomoku
             int numberOfWins = Convert.ToInt32(line1[1]);
 
             numberOfWins++;
-            fileDetails[0] = $"{line1[0]}:{numberOfWins}";
+            fileDetails[0] = $"{line1[0]}: {numberOfWins}";
 
             // Least Number of Turns
             string[] line2 = fileDetails[1].Split(':');
@@ -80,7 +80,7 @@ namespace Gomoku
 
             if (noOfTurns == 0 || turns < noOfTurns)
             {
-                fileDetails[1] = $"{line2[0]}:{turns}";
+                fileDetails[1] = $"{line2[0]}: {turns}";
             }
 
             // Winning Streaks
@@ -103,8 +103,8 @@ namespace Gomoku
                 winStreakCount++;
             }
 
-            fileDetails[2] = $"{line3[0]}:{winStreakCount}";
-            fileDetails[3] = $"{line4[0]}:{isWinStreak}";
+            fileDetails[2] = $"{line3[0]}: {winStreakCount}";
+            fileDetails[3] = $"{line4[0]}: {isWinStreak}";
 
             File.WriteAllLines(checkFile, fileDetails);
         }
