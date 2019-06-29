@@ -47,6 +47,7 @@
             this.exitBtn.Name = "exitBtn";
             this.exitBtn.Size = new System.Drawing.Size(40, 40);
             this.exitBtn.TabIndex = 9;
+            this.exitBtn.TabStop = false;
             this.exitBtn.Text = "X";
             this.exitBtn.UseVisualStyleBackColor = false;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
@@ -60,7 +61,7 @@
             this.startBtn.Location = new System.Drawing.Point(181, 127);
             this.startBtn.Name = "startBtn";
             this.startBtn.Size = new System.Drawing.Size(439, 103);
-            this.startBtn.TabIndex = 12;
+            this.startBtn.TabIndex = 1;
             this.startBtn.Text = "Gomoku!";
             this.startBtn.UseVisualStyleBackColor = false;
             this.startBtn.Click += new System.EventHandler(this.startBtn_Click);
@@ -91,7 +92,7 @@
             this.difficultyCombo.Location = new System.Drawing.Point(294, 278);
             this.difficultyCombo.Name = "difficultyCombo";
             this.difficultyCombo.Size = new System.Drawing.Size(213, 36);
-            this.difficultyCombo.TabIndex = 10;
+            this.difficultyCombo.TabIndex = 2;
             this.difficultyCombo.SelectedIndexChanged += new System.EventHandler(this.difficultyCombo_SelectedIndexChanged);
             // 
             // minimizeBtn
@@ -105,6 +106,7 @@
             this.minimizeBtn.Name = "minimizeBtn";
             this.minimizeBtn.Size = new System.Drawing.Size(40, 40);
             this.minimizeBtn.TabIndex = 13;
+            this.minimizeBtn.TabStop = false;
             this.minimizeBtn.Text = "_";
             this.minimizeBtn.UseVisualStyleBackColor = false;
             this.minimizeBtn.Click += new System.EventHandler(this.minimizeBtn_Click);

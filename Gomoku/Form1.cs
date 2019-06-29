@@ -160,22 +160,25 @@ namespace Gomoku
 
         public void reset_board()
         {
-            foreach (Control control in gamePanel.Controls)
+            if (MessageBox.Show("Are you sure?", "New Game", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
-                control.BackgroundImage = null;
-                control.Enabled = true;
-            }
-
-            for (int col = 0; col < BOARD_DIMENTION-1; col++)
-            {
-                for (int row = 0; row < BOARD_DIMENTION-1; row++)
+                foreach (Control control in gamePanel.Controls)
                 {
-                    GAME_BOARD[row, col] = null;
+                    control.BackgroundImage = null;
+                    control.Enabled = true;
                 }
-            }
 
-            turnNumber = 0;
-            turnLbl.Text = turnStr + turnNumber;
+                for (int col = 0; col < BOARD_DIMENTION - 1; col++)
+                {
+                    for (int row = 0; row < BOARD_DIMENTION - 1; row++)
+                    {
+                        GAME_BOARD[row, col] = null;
+                    }
+                }
+
+                turnNumber = 0;
+                turnLbl.Text = turnStr + turnNumber;
+            }
         }
 
         private void computer_turn()
@@ -236,17 +239,27 @@ namespace Gomoku
         
         private void showMenu()
         {
-            this.Hide();
-            GameSettings gameSettings = new GameSettings();
-            gameSettings.ShowDialog();
-            this.Close();
+            if (MessageBox.Show("Are you sure?", "Return to Menu", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                this.Hide();
+                GameSettings gameSettings = new GameSettings();
+                gameSettings.ShowDialog();
+                this.Close();
+            }
         }
 
+        private void exit()
+        {
+            if (MessageBox.Show("Are you sure?", "Exit?", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
 
         // Toolbar (Toolbar Menu) Actions
         private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            exit();
         }
 
         private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
@@ -273,14 +286,14 @@ namespace Gomoku
 
         private void exitContextStrip_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            exit();
         }
 
 
         //Button Actions
         private void exitBtn_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            exit();
         }
 
         private void miminiseBtn_Click(object sender, EventArgs e)
