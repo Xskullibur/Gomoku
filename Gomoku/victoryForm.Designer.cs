@@ -42,7 +42,7 @@
             this.victoryLbl.BackColor = System.Drawing.Color.Transparent;
             this.victoryLbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.victoryLbl.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.victoryLbl.Font = new System.Drawing.Font("Kristen ITC", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.victoryLbl.Font = new System.Drawing.Font("Kristen ITC", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.victoryLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.victoryLbl.Location = new System.Drawing.Point(0, 0);
             this.victoryLbl.Name = "victoryLbl";
