@@ -22,12 +22,16 @@ namespace Gomoku
         // Dimention of board
         const int BOARD_DIMENTION = 15;
 
-        // Die Image Location
+        // Names Image
         string PLAYER_DIE, COMPUTER_DIE;
 
         // Symbol Representing Users
         const string PLAYER_SYMBOL = "o";
         const string COMPUTER_SYMBOL = "x";
+
+        // Turn Number
+        string turnStr = "Turn: ";
+        int turnNumber = 0;
 
         string[,] GAME_BOARD = new string[BOARD_DIMENTION, BOARD_DIMENTION];
 
@@ -42,15 +46,10 @@ namespace Gomoku
             generateBoard();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         /**
          *      Board Functions
          **/
-        
+
         // Get Coords From Btn Name
         private int[] getCoords(string btnName)
         {
@@ -58,63 +57,18 @@ namespace Gomoku
             return new int[] { Convert.ToInt32(splitedName[0]), Convert.ToInt32(splitedName[1]) };
         }
 
-        // Generate Game Board
-        public void generateBoard()
-        {
-            int startX = 10;
-            int startY = 10;
-            int btnHeight = 35;
-            int btnWidth = 35;
-            int dist = 10;
 
-            for (int x = 0; x < BOARD_DIMENTION; x++)
-            {
-                for (int y = 0; y < BOARD_DIMENTION; y++)
-                {
-                    Button btn = new Button();
-                    btn.BackColor = Color.SandyBrown;
-                    btn.Name = $"{x}-{y}_btn";
-                    btn.TabStop = false;
-                    btn.Click += button_click;
+        // Button Events
+        bool btnClicked = false;
 
-                    btn.Top = startX + (x * btnHeight + dist);
-                    btn.Left = startY + (y * btnWidth + dist);
-                    btn.Width = btnWidth;
-                    btn.Height = btnHeight;
-
-                    gamePanel.Controls.Add(btn);
-                }
-            }
-        }
-
-        // Reset GAME_BOARD and regen UI
-        private void reset_board()
-        {
-            foreach (Control control in gamePanel.Controls)
-            {
-                control.BackgroundImage = null;
-                control.Enabled = true;
-            }
-
-            for (int col = 0; col < BOARD_DIMENTION-1; col++)
-            {
-                for (int row = 0; row < BOARD_DIMENTION-1; row++)
-                {
-                    GAME_BOARD[row, col] = "";
-                }
-            }
-
-            this.Close();
-        }
-
-        /**
-         *      Main Actions
-         **/
-
-        // Player Click
         private void button_click(object sender, EventArgs e)
         {
+            // Update Turn
+            turnNumber++;
+            turnLbl.Text = turnStr + turnNumber;
+
             Button btn = (Button)sender;
+            btnClicked = true;
 
             // Get Selected Coords
             int[] coords = getCoords(btn.Name);
@@ -131,13 +85,104 @@ namespace Gomoku
             // Check Victory
             if (GameLogic.winCondition(GAME_BOARD, PLAYER_SYMBOL))
             {
-                MessageBox.Show("Player Wins!");
+                victoryForm victoryForm = new victoryForm(victoryForm.users.player, this);
+                victoryForm.ShowDialog();
             }
             else
             {
                 computer_turn();
             }
         }
+
+        private void button_MouseEnter(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+
+            btn.BackgroundImage = Image.FromFile(PLAYER_DIE);
+            btn.BackgroundImageLayout = ImageLayout.Stretch;
+
+            btn.Cursor = Cursors.Hand;
+        }
+
+        private void button_MouseLeave(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+
+            btn.Cursor = Cursors.Default;
+
+            if (btnClicked)
+            {
+                btnClicked = false;
+            }
+            else
+            {
+                btn.BackgroundImage = null;
+            }
+        }
+
+
+        // Generate Game Board
+        public void generateBoard()
+        {
+            int startX = 60;
+            int startY = gamePanel.Width / 2;
+            int btnHeight = 35;
+            int btnWidth = 35;
+            int dist = 10;
+
+            for (int x = 0; x < BOARD_DIMENTION; x++)
+            {
+                for (int y = 0; y < BOARD_DIMENTION; y++)
+                {
+                    // Properties
+                    Button btn = new Button();
+                    btn.BackColor = Color.Beige
+;
+                    btn.FlatStyle = FlatStyle.Flat;
+                    btn.Name = $"{x}-{y}_btn";
+                    btn.TabStop = false;
+
+                    // Events
+                    btn.Click += button_click;
+                    btn.MouseEnter += button_MouseEnter;
+                    btn.MouseLeave += button_MouseLeave;
+
+                    btn.Top = startX + (x * btnHeight + dist);
+                    btn.Left = startY + (y * btnWidth + dist);
+
+                    btn.Width = btnWidth;
+                    btn.Height = btnHeight;
+
+                    gamePanel.Controls.Add(btn);
+                }
+            }
+        }
+
+
+        // Reset GAME_BOARD and regen UI
+        public void reset_board()
+        {
+            foreach (Control control in gamePanel.Controls)
+            {
+                control.BackgroundImage = null;
+                control.Enabled = true;
+            }
+
+            for (int col = 0; col < BOARD_DIMENTION-1; col++)
+            {
+                for (int row = 0; row < BOARD_DIMENTION-1; row++)
+                {
+                    GAME_BOARD[row, col] = "";
+                }
+            }
+
+            turnNumber = 0;
+            turnLbl.Text = turnStr + turnNumber;
+        }
+
+        /**
+         *      Main Actions
+         **/
 
         // Computer' Move
         private void computer_turn()
@@ -186,21 +231,46 @@ namespace Gomoku
             // Check Win Condition
             if (GameLogic.winCondition(GAME_BOARD, COMPUTER_SYMBOL))
             {
-                MessageBox.Show("Computer Wins");
+                victoryForm victoryForm = new victoryForm(victoryForm.users.computer, this);
+                victoryForm.ShowDialog();
             }
         }
 
         /**
          *      Menu Actions
          **/
+
         private void newGame_Click(object sender, EventArgs e)
         {
             reset_board();
         }
 
-        private void exit_Click(object sender, EventArgs e)
+        private void menuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            GameSettings gameSettings = new GameSettings();
+            gameSettings.ShowDialog();
+            this.Close();
+        }
+
+        private void closeApp()
         {
             Application.Exit();
+        }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            closeApp();
+        }
+
+        private void miminiseBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            closeApp();
         }
     }
 }

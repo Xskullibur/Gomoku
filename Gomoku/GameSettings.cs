@@ -34,7 +34,19 @@ namespace Gomoku
         private void startBtn_Click(object sender, EventArgs e)
         {
             Form1 form1 = new Form1(cDifficulty);
+            this.Hide();
             form1.ShowDialog();
+            this.Close();
+        }
+
+        private void exitBtn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void minimizeBtn_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

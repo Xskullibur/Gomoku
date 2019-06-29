@@ -1,0 +1,134 @@
+﻿namespace Gomoku
+{
+    partial class victoryForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(victoryForm));
+            this.victoryLbl = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.menuBtn = new System.Windows.Forms.Button();
+            this.newGameBtn = new System.Windows.Forms.Button();
+            this.exitBtn = new System.Windows.Forms.Button();
+            this.panel1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // victoryLbl
+            // 
+            this.victoryLbl.BackColor = System.Drawing.Color.Transparent;
+            this.victoryLbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.victoryLbl.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.victoryLbl.Font = new System.Drawing.Font("Kristen ITC", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.victoryLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.victoryLbl.Location = new System.Drawing.Point(0, 0);
+            this.victoryLbl.Name = "victoryLbl";
+            this.victoryLbl.Size = new System.Drawing.Size(800, 450);
+            this.victoryLbl.TabIndex = 0;
+            this.victoryLbl.Text = "Victory!";
+            this.victoryLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Controls.Add(this.menuBtn);
+            this.panel1.Controls.Add(this.newGameBtn);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 285);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(800, 165);
+            this.panel1.TabIndex = 1;
+            // 
+            // menuBtn
+            // 
+            this.menuBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.menuBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.menuBtn.Font = new System.Drawing.Font("Kristen ITC", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuBtn.Location = new System.Drawing.Point(321, 85);
+            this.menuBtn.Name = "menuBtn";
+            this.menuBtn.Size = new System.Drawing.Size(158, 46);
+            this.menuBtn.TabIndex = 2;
+            this.menuBtn.Text = "Menu";
+            this.menuBtn.UseVisualStyleBackColor = false;
+            this.menuBtn.Click += new System.EventHandler(this.menuBtn_Click);
+            // 
+            // newGameBtn
+            // 
+            this.newGameBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.newGameBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.newGameBtn.Font = new System.Drawing.Font("Kristen ITC", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.newGameBtn.Location = new System.Drawing.Point(321, 33);
+            this.newGameBtn.Name = "newGameBtn";
+            this.newGameBtn.Size = new System.Drawing.Size(158, 46);
+            this.newGameBtn.TabIndex = 1;
+            this.newGameBtn.Text = "New Game";
+            this.newGameBtn.UseVisualStyleBackColor = false;
+            this.newGameBtn.Click += new System.EventHandler(this.newGameBtn_Click);
+            // 
+            // exitBtn
+            // 
+            this.exitBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.exitBtn.BackColor = System.Drawing.Color.Red;
+            this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.exitBtn.Font = new System.Drawing.Font("Kristen ITC", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.exitBtn.Location = new System.Drawing.Point(748, 12);
+            this.exitBtn.Name = "exitBtn";
+            this.exitBtn.Size = new System.Drawing.Size(40, 40);
+            this.exitBtn.TabIndex = 10;
+            this.exitBtn.Text = "X";
+            this.exitBtn.UseVisualStyleBackColor = false;
+            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
+            // 
+            // victoryForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.exitBtn);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.victoryLbl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "victoryForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "victoryForm";
+            this.panel1.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Label victoryLbl;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button menuBtn;
+        private System.Windows.Forms.Button newGameBtn;
+        private System.Windows.Forms.Button exitBtn;
+    }
+}
