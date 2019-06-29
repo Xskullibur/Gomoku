@@ -122,7 +122,7 @@ namespace Gomoku
 
 
         // Game Actions
-        public void generateBoard()         
+        public void generateBoard()
         {
             int startX = 60;
             int startY = gamePanel.Width / 2;
@@ -158,7 +158,6 @@ namespace Gomoku
             }
         }
 
-
         public void reset_board()
         {
             foreach (Control control in gamePanel.Controls)
@@ -171,7 +170,7 @@ namespace Gomoku
             {
                 for (int row = 0; row < BOARD_DIMENTION-1; row++)
                 {
-                    GAME_BOARD[row, col] = "";
+                    GAME_BOARD[row, col] = null;
                 }
             }
 

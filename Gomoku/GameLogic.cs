@@ -154,6 +154,7 @@ namespace Gomoku
             return false;
         }
 
+
         // Difficulty Computer Turns
         public int[] easyBOT(string[,] GAME_BOARD)
         {
@@ -215,12 +216,13 @@ namespace Gomoku
             if (coords[0] == -1 && coords[1] == -1)
                 coords = checkForConsecutive(GAME_BOARD, 2, PLAYER_SYMBOL);
 
-            // Win Check(1)
+            // Block Check(1)
             if (coords[0] == -1 && coords[1] == -1)
                 coords = checkForConsecutive(GAME_BOARD, 1, PLAYER_SYMBOL);
 
             return coords;
         }
+
 
         // Functions
         private bool checkCurrentTurn(string symbol)
