@@ -239,8 +239,6 @@ namespace Gomoku
             // Check Win Condition
             if (GameLogic.winCondition(GAME_BOARD, COMPUTER_SYMBOL))
             {
-                Scoreboard.updateLoseWinStreak(GameLogic.cDifficulty);
-
                 victoryForm victoryForm = new victoryForm(victoryForm.users.computer, turnNumber, GameLogic.cDifficulty, this);
                 victoryForm.ShowDialog();
             }

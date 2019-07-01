@@ -15,6 +15,7 @@ namespace Gomoku
         public GameSettings refGameSettings { get; set; }
 
         DIFFICULTY cDifficulty = new DIFFICULTY();
+        Users users;
 
         public GameSettings()
         {

@@ -22,9 +22,6 @@ namespace Gomoku
             hardPanel.Height = panelHeight;
 
             Scoreboard scoreboard = new Scoreboard();
-            easyLbl.Text = scoreboard.readEasy();
-            normalLbl.Text = scoreboard.readNormal();
-            hardLbl.Text = scoreboard.readHard();
         }
     }
 }
