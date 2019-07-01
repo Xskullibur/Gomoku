@@ -1,4 +1,0 @@
-Number of Wins: 0
-Least Number of Turns To Win: 0
-Highest Win Streak: 0
-Win Streak: false

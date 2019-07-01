@@ -20,6 +20,7 @@ namespace Gomoku
         public GameSettings()
         {
             InitializeComponent();
+            Scoreboard scoreboard = new Scoreboard();
         }
 
         private void GameSettings_Load(object sender, EventArgs e)

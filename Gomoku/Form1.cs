@@ -16,9 +16,6 @@ namespace Gomoku
         // Game Logic Class
         GameLogic GameLogic;
 
-        // Scoreboard
-        Scoreboard Scoreboard;
-
         // Img Folder Path
         string IMAGE_PATH = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory().ToString()).ToString()) + "\\img";
 
@@ -49,7 +46,6 @@ namespace Gomoku
             menuTableLayout.Height = menuStrip.Height;
 
             GameLogic = new GameLogic(difficulty);
-            Scoreboard = new Scoreboard();
             generateBoard();
         }
 
@@ -92,8 +88,6 @@ namespace Gomoku
             // Check Victory
             if (GameLogic.winCondition(GAME_BOARD, PLAYER_SYMBOL))
             {
-                Scoreboard.updateRecords(turnNumber, GameLogic.cDifficulty);
-
                 victoryForm victoryForm = new victoryForm(victoryForm.users.player, turnNumber, GameLogic.cDifficulty, this);
                 victoryForm.ShowDialog();
             }
@@ -189,7 +183,35 @@ namespace Gomoku
                 }
 
                 turnNumber = 0;
-                difficultyLbl.Text = turnStr + turnNumber;
+                turnLbl.Text = turnStr + turnNumber;
+                GameLogic = new GameLogic(setDifficulty);
+                difficultyLbl.Text = $"{difficultyLbl.Text.Split(':')[0]}: {GameLogic.cDifficulty}";
+            }
+        }
+
+        public void reset_board(DIFFICULTY setDifficulty, Object sender)
+        {
+            if (MessageBox.Show($"Start a new ({setDifficulty}) Game?", "New Game", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            {
+                foreach (Control control in gamePanel.Controls)
+                {
+                    control.BackgroundImage = null;
+                    control.Enabled = true;
+                }
+
+                for (int col = 0; col < BOARD_DIMENTION - 1; col++)
+                {
+                    for (int row = 0; row < BOARD_DIMENTION - 1; row++)
+                    {
+                        GAME_BOARD[row, col] = null;
+                    }
+                }
+
+                turnNumber = 0;
+                turnLbl.Text = turnStr + turnNumber;
+                GameLogic = new GameLogic(setDifficulty);
+                difficultyLbl.Text = $"{difficultyLbl.Text.Split(':')[0]}: {GameLogic.cDifficulty}";
+                (sender as Form).Close();
             }
         }
 
@@ -268,27 +290,21 @@ namespace Gomoku
             }
         }
 
-        private void createNewDifficulty(DIFFICULTY setDifficulty)
-        {
-            GameLogic = new GameLogic(setDifficulty);
-            reset_board(setDifficulty);
-        }
-
         // Menu Actions
 
         private void newEasyGameMenu_Click(object sender, EventArgs e)
         {
-            createNewDifficulty(DIFFICULTY.EASY);
+            reset_board(DIFFICULTY.EASY);
         }
 
         private void newNormalGameMenu_Click(object sender, EventArgs e)
         {
-            createNewDifficulty(DIFFICULTY.NORMAL);
+            reset_board(DIFFICULTY.NORMAL);
         }
 
         private void newHardGameMenu_Click(object sender, EventArgs e)
         {
-            createNewDifficulty(DIFFICULTY.HARD);
+            reset_board(DIFFICULTY.HARD);
         }
 
         private void showMenu_Click(object sender, EventArgs e)

@@ -21,6 +21,7 @@ namespace Gomoku
         const string playerName = "Player";
         const string computerName = "Computer";
         DIFFICULTY cDifficulty;
+        Scoreboard scoreboard = new Scoreboard();
         Form1 form;
 
         public victoryForm(users users, int turns, DIFFICULTY difficulty, Form1 currentForm)
@@ -33,6 +34,7 @@ namespace Gomoku
             {
                 case users.player:
                     victoryLbl.Text = $"{playerName} {victoryLbl.Text}";
+                    scoreboard.updateRecords(turns, difficulty, "Test Player");
                     break;
                 case users.computer:
                     victoryLbl.Text = $"{computerName} {victoryLbl.Text}";
@@ -42,13 +44,18 @@ namespace Gomoku
                     break;
             }
 
-            turnLbl.Text = $"Turns: {turns}";
+            turnLbl.Text = $"Score: {scoreboard.getScore(turns, difficulty)}";
+
+            if (difficulty == DIFFICULTY.HARD)
+            {
+                nxtLvlBtn.BackColor = Color.FromArgb(150, Color.Violet);
+                nxtLvlBtn.Enabled = false;
+            }
         }
 
         private void newGameBtn_Click(object sender, EventArgs e)
         {
-            form.reset_board(cDifficulty);
-            this.Close();
+            form.reset_board(cDifficulty, this);
         }
 
         private void menuBtn_Click(object sender, EventArgs e)
@@ -63,6 +70,22 @@ namespace Gomoku
         private void exitBtn_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void nxtLvlBtn_Click(object sender, EventArgs e)
+        {
+            switch (cDifficulty)
+            {
+                case DIFFICULTY.EASY:
+                    form.reset_board(DIFFICULTY.NORMAL, this);
+                    this.Close();
+                    break;
+                case DIFFICULTY.NORMAL:
+                    form.reset_board(DIFFICULTY.HARD, this);
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

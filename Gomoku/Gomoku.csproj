@@ -121,11 +121,9 @@
   <ItemGroup>
     <Content Include="img\black_die.png" />
     <Content Include="img\white_die.png" />
-    <Content Include="score\easy.txt" />
-    <Content Include="score\hard.txt" />
-    <Content Include="score\highscore.txt" />
-    <Content Include="score\normal.txt" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="score\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
