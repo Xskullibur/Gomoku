@@ -20,12 +20,14 @@ namespace Gomoku
 
         const string playerName = "Player";
         const string computerName = "Computer";
+        DIFFICULTY cDifficulty;
         Form1 form;
 
-        public victoryForm(users users, int turns, Form1 currentForm)
+        public victoryForm(users users, int turns, DIFFICULTY difficulty, Form1 currentForm)
         {
             InitializeComponent();
             form = currentForm;
+            cDifficulty = difficulty;
 
             switch (users)
             {
@@ -45,7 +47,7 @@ namespace Gomoku
 
         private void newGameBtn_Click(object sender, EventArgs e)
         {
-            form.reset_board();
+            form.reset_board(cDifficulty);
             this.Close();
         }
 

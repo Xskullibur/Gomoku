@@ -11,7 +11,7 @@ namespace Gomoku
     {
         string scoreFolder = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory().ToString()).ToString()) + "\\score";
 
-        string easyFile, normalFile, hardFile;
+        string easyFile, normalFile, hardFile, highscoreFile;
 
         string[] defaultScore = 
         {
@@ -21,12 +21,15 @@ namespace Gomoku
             "Win Streak: false"
         };
 
+        string defaultHighscore = "Highscore: 0";
+
         public Scoreboard()
         {
 
             easyFile = $"{scoreFolder}//easy.txt";
             normalFile = $"{scoreFolder}//normal.txt";
             hardFile = $"{scoreFolder}//hard.txt";
+            highscoreFile = $"{scoreFolder}//highscore.txt";
 
             if (!File.Exists(easyFile))
             {
@@ -41,6 +44,11 @@ namespace Gomoku
             if (!File.Exists(hardFile))
             {
                 File.WriteAllLines(hardFile, defaultScore);
+            }
+
+            if (!File.Exists(highscoreFile))
+            {
+                File.WriteAllText(highscoreFile, defaultHighscore);
             }
         }
 

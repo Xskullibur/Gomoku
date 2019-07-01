@@ -37,12 +37,16 @@
             this.exitBtn = new System.Windows.Forms.Button();
             this.turnLbl = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newGameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.newGameToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.easyDifficultyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.normalDifficultyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hardDifficultyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.newGameContextStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.easyDifficultyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.normalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuContextStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.exitContextStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
@@ -70,9 +74,9 @@
             this.gamePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.gamePanel.Controls.Add(this.panel2);
             this.gamePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gamePanel.Location = new System.Drawing.Point(0, 33);
+            this.gamePanel.Location = new System.Drawing.Point(0, 41);
             this.gamePanel.Name = "gamePanel";
-            this.gamePanel.Size = new System.Drawing.Size(1139, 604);
+            this.gamePanel.Size = new System.Drawing.Size(1139, 596);
             this.gamePanel.TabIndex = 4;
             // 
             // panel2
@@ -134,45 +138,58 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.MediumPurple;
+            this.menuStrip1.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.newGameToolStripMenuItem1,
+            this.menuToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1139, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1139, 41);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // fileToolStripMenuItem
+            // newGameToolStripMenuItem1
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newGameToolStripMenuItem,
-            this.menuToolStripMenuItem,
-            this.exitToolStripMenuItem1});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(50, 29);
-            this.fileToolStripMenuItem.Text = "&File";
+            this.newGameToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.easyDifficultyToolStripMenuItem,
+            this.normalDifficultyToolStripMenuItem,
+            this.hardDifficultyToolStripMenuItem});
+            this.newGameToolStripMenuItem1.Name = "newGameToolStripMenuItem1";
+            this.newGameToolStripMenuItem1.Size = new System.Drawing.Size(153, 37);
+            this.newGameToolStripMenuItem1.Text = "New Game";
             // 
-            // newGameToolStripMenuItem
+            // easyDifficultyToolStripMenuItem
             // 
-            this.newGameToolStripMenuItem.Name = "newGameToolStripMenuItem";
-            this.newGameToolStripMenuItem.Size = new System.Drawing.Size(182, 30);
-            this.newGameToolStripMenuItem.Text = "&New Game";
-            this.newGameToolStripMenuItem.Click += new System.EventHandler(this.newGameToolStripMenuItem_Click);
+            this.easyDifficultyToolStripMenuItem.Font = new System.Drawing.Font("Kristen ITC", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.easyDifficultyToolStripMenuItem.Name = "easyDifficultyToolStripMenuItem";
+            this.easyDifficultyToolStripMenuItem.Size = new System.Drawing.Size(274, 32);
+            this.easyDifficultyToolStripMenuItem.Text = "Easy Difficulty";
+            this.easyDifficultyToolStripMenuItem.Click += new System.EventHandler(this.newEasyGameMenu_Click);
             // 
-            // menuToolStripMenuItem
+            // normalDifficultyToolStripMenuItem
             // 
-            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(182, 30);
-            this.menuToolStripMenuItem.Text = "Menu";
-            this.menuToolStripMenuItem.Click += new System.EventHandler(this.menuToolStripMenuItem_Click_1);
+            this.normalDifficultyToolStripMenuItem.Font = new System.Drawing.Font("Kristen ITC", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.normalDifficultyToolStripMenuItem.Name = "normalDifficultyToolStripMenuItem";
+            this.normalDifficultyToolStripMenuItem.Size = new System.Drawing.Size(274, 32);
+            this.normalDifficultyToolStripMenuItem.Text = "Normal Difficulty";
+            this.normalDifficultyToolStripMenuItem.Click += new System.EventHandler(this.newNormalGameMenu_Click);
             // 
-            // exitToolStripMenuItem1
+            // hardDifficultyToolStripMenuItem
             // 
-            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
-            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(182, 30);
-            this.exitToolStripMenuItem1.Text = "E&xit";
-            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.exitToolStripMenuItem1_Click);
+            this.hardDifficultyToolStripMenuItem.Font = new System.Drawing.Font("Kristen ITC", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hardDifficultyToolStripMenuItem.Name = "hardDifficultyToolStripMenuItem";
+            this.hardDifficultyToolStripMenuItem.Size = new System.Drawing.Size(274, 32);
+            this.hardDifficultyToolStripMenuItem.Text = "Hard Difficulty";
+            this.hardDifficultyToolStripMenuItem.Click += new System.EventHandler(this.newHardGameMenu_Click);
+            // 
+            // menuToolStripMenuItem1
+            // 
+            this.menuToolStripMenuItem1.Name = "menuToolStripMenuItem1";
+            this.menuToolStripMenuItem1.Size = new System.Drawing.Size(95, 37);
+            this.menuToolStripMenuItem1.Text = "Menu";
+            this.menuToolStripMenuItem1.Click += new System.EventHandler(this.showMenu_Click);
             // 
             // contextMenuStrip1
             // 
@@ -182,21 +199,45 @@
             this.menuContextStrip,
             this.exitContextStrip});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(171, 94);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(241, 127);
             // 
             // newGameContextStrip
             // 
+            this.newGameContextStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.easyDifficultyToolStripMenuItem1,
+            this.normalToolStripMenuItem,
+            this.hardToolStripMenuItem});
             this.newGameContextStrip.Name = "newGameContextStrip";
             this.newGameContextStrip.Size = new System.Drawing.Size(170, 30);
             this.newGameContextStrip.Text = "New Game";
-            this.newGameContextStrip.Click += new System.EventHandler(this.newGameContextStrip_Click);
+            // 
+            // easyDifficultyToolStripMenuItem1
+            // 
+            this.easyDifficultyToolStripMenuItem1.Name = "easyDifficultyToolStripMenuItem1";
+            this.easyDifficultyToolStripMenuItem1.Size = new System.Drawing.Size(155, 30);
+            this.easyDifficultyToolStripMenuItem1.Text = "Easy";
+            this.easyDifficultyToolStripMenuItem1.Click += new System.EventHandler(this.newEasyGameMenu_Click);
+            // 
+            // normalToolStripMenuItem
+            // 
+            this.normalToolStripMenuItem.Name = "normalToolStripMenuItem";
+            this.normalToolStripMenuItem.Size = new System.Drawing.Size(155, 30);
+            this.normalToolStripMenuItem.Text = "Normal";
+            this.normalToolStripMenuItem.Click += new System.EventHandler(this.newNormalGameMenu_Click);
+            // 
+            // hardToolStripMenuItem
+            // 
+            this.hardToolStripMenuItem.Name = "hardToolStripMenuItem";
+            this.hardToolStripMenuItem.Size = new System.Drawing.Size(155, 30);
+            this.hardToolStripMenuItem.Text = "Hard";
+            this.hardToolStripMenuItem.Click += new System.EventHandler(this.newHardGameMenu_Click);
             // 
             // menuContextStrip
             // 
             this.menuContextStrip.Name = "menuContextStrip";
-            this.menuContextStrip.Size = new System.Drawing.Size(170, 30);
+            this.menuContextStrip.Size = new System.Drawing.Size(240, 30);
             this.menuContextStrip.Text = "Menu";
-            this.menuContextStrip.Click += new System.EventHandler(this.menuContextStrip_Click);
+            this.menuContextStrip.Click += new System.EventHandler(this.showMenu_Click);
             // 
             // exitContextStrip
             // 
@@ -239,13 +280,17 @@
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.Label turnLbl;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newGameContextStrip;
         private System.Windows.Forms.ToolStripMenuItem menuContextStrip;
         private System.Windows.Forms.ToolStripMenuItem exitContextStrip;
+        private System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem easyDifficultyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem normalDifficultyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hardDifficultyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem easyDifficultyToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem normalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hardToolStripMenuItem;
     }
 }
 

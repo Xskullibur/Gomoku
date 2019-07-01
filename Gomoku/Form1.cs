@@ -91,7 +91,7 @@ namespace Gomoku
             {
                 Scoreboard.updateRecords(turnNumber, GameLogic.cDifficulty);
 
-                victoryForm victoryForm = new victoryForm(victoryForm.users.player, turnNumber, this);
+                victoryForm victoryForm = new victoryForm(victoryForm.users.player, turnNumber, GameLogic.cDifficulty, this);
                 victoryForm.ShowDialog();
             }
             else
@@ -164,9 +164,9 @@ namespace Gomoku
             }
         }
 
-        public void reset_board()
+        public void reset_board(DIFFICULTY setDifficulty)
         {
-            if (MessageBox.Show("Are you sure?", "New Game", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
+            if (MessageBox.Show($"Start a new ({setDifficulty}) Game?", "New Game", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
                 foreach (Control control in gamePanel.Controls)
                 {
@@ -235,7 +235,7 @@ namespace Gomoku
             {
                 Scoreboard.updateLoseWinStreak(GameLogic.cDifficulty);
 
-                victoryForm victoryForm = new victoryForm(victoryForm.users.computer, turnNumber, this);
+                victoryForm victoryForm = new victoryForm(victoryForm.users.computer, turnNumber, GameLogic.cDifficulty, this);
                 victoryForm.ShowDialog();
             }
         }
@@ -264,33 +264,35 @@ namespace Gomoku
             }
         }
 
-        // Toolbar (Toolbar Menu) Actions
-        private void exitToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void createNewDifficulty(DIFFICULTY setDifficulty)
         {
-            exit();
+            GameLogic = new GameLogic(setDifficulty);
+            reset_board(setDifficulty);
         }
 
-        private void newGameToolStripMenuItem_Click(object sender, EventArgs e)
+        // Menu Actions
+
+        private void newEasyGameMenu_Click(object sender, EventArgs e)
         {
-            reset_board();
+            createNewDifficulty(DIFFICULTY.EASY);
         }
 
-        private void menuToolStripMenuItem_Click_1(object sender, EventArgs e)
+        private void newNormalGameMenu_Click(object sender, EventArgs e)
+        {
+            createNewDifficulty(DIFFICULTY.NORMAL);
+        }
+
+        private void newHardGameMenu_Click(object sender, EventArgs e)
+        {
+            createNewDifficulty(DIFFICULTY.HARD);
+        }
+
+        private void showMenu_Click(object sender, EventArgs e)
         {
             showMenu();
         }
-
 
         // Context Strip (Right Click Menu) Actions
-        private void newGameContextStrip_Click(object sender, EventArgs e)
-        {
-            reset_board();
-        }
-
-        private void menuContextStrip_Click(object sender, EventArgs e)
-        {
-            showMenu();
-        }
 
         private void exitContextStrip_Click(object sender, EventArgs e)
         {
