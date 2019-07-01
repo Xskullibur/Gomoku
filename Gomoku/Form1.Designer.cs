@@ -32,16 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.gamePanel = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.miminiseBtn = new System.Windows.Forms.Button();
-            this.exitBtn = new System.Windows.Forms.Button();
-            this.turnLbl = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.newGameToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.easyDifficultyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.normalDifficultyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hardDifficultyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.newGameContextStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.easyDifficultyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,17 +39,29 @@
             this.hardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuContextStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.exitContextStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.miminiseBtn = new System.Windows.Forms.Button();
+            this.exitBtn = new System.Windows.Forms.Button();
+            this.difficultyLbl = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.newGameToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.easyDifficultyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.normalDifficultyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hardDifficultyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.turnLbl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.gamePanel.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.Controls.Add(this.gamePanel);
             this.panel1.Controls.Add(this.menuStrip1);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -69,27 +71,81 @@
             // gamePanel
             // 
             this.gamePanel.AutoScroll = true;
-            this.gamePanel.BackColor = System.Drawing.Color.BurlyWood;
-            this.gamePanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gamePanel.BackgroundImage")));
+            this.gamePanel.BackColor = System.Drawing.Color.Transparent;
             this.gamePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.gamePanel.Controls.Add(this.panel2);
             this.gamePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gamePanel.Location = new System.Drawing.Point(0, 41);
+            this.gamePanel.Location = new System.Drawing.Point(0, 186);
             this.gamePanel.Name = "gamePanel";
-            this.gamePanel.Size = new System.Drawing.Size(1139, 596);
+            this.gamePanel.Size = new System.Drawing.Size(1139, 451);
             this.gamePanel.TabIndex = 4;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newGameContextStrip,
+            this.menuContextStrip,
+            this.exitContextStrip});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(171, 94);
+            // 
+            // newGameContextStrip
+            // 
+            this.newGameContextStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.easyDifficultyToolStripMenuItem1,
+            this.normalToolStripMenuItem,
+            this.hardToolStripMenuItem});
+            this.newGameContextStrip.Name = "newGameContextStrip";
+            this.newGameContextStrip.Size = new System.Drawing.Size(170, 30);
+            this.newGameContextStrip.Text = "New Game";
+            // 
+            // easyDifficultyToolStripMenuItem1
+            // 
+            this.easyDifficultyToolStripMenuItem1.Name = "easyDifficultyToolStripMenuItem1";
+            this.easyDifficultyToolStripMenuItem1.Size = new System.Drawing.Size(155, 30);
+            this.easyDifficultyToolStripMenuItem1.Text = "Easy";
+            this.easyDifficultyToolStripMenuItem1.Click += new System.EventHandler(this.newEasyGameMenu_Click);
+            // 
+            // normalToolStripMenuItem
+            // 
+            this.normalToolStripMenuItem.Name = "normalToolStripMenuItem";
+            this.normalToolStripMenuItem.Size = new System.Drawing.Size(155, 30);
+            this.normalToolStripMenuItem.Text = "Normal";
+            this.normalToolStripMenuItem.Click += new System.EventHandler(this.newNormalGameMenu_Click);
+            // 
+            // hardToolStripMenuItem
+            // 
+            this.hardToolStripMenuItem.Name = "hardToolStripMenuItem";
+            this.hardToolStripMenuItem.Size = new System.Drawing.Size(155, 30);
+            this.hardToolStripMenuItem.Text = "Hard";
+            this.hardToolStripMenuItem.Click += new System.EventHandler(this.newHardGameMenu_Click);
+            // 
+            // menuContextStrip
+            // 
+            this.menuContextStrip.Name = "menuContextStrip";
+            this.menuContextStrip.Size = new System.Drawing.Size(170, 30);
+            this.menuContextStrip.Text = "Menu";
+            this.menuContextStrip.Click += new System.EventHandler(this.showMenu_Click);
+            // 
+            // exitContextStrip
+            // 
+            this.exitContextStrip.Name = "exitContextStrip";
+            this.exitContextStrip.Size = new System.Drawing.Size(170, 30);
+            this.exitContextStrip.Text = "Exit";
+            this.exitContextStrip.Click += new System.EventHandler(this.exitContextStrip_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.turnLbl);
             this.panel2.Controls.Add(this.miminiseBtn);
             this.panel2.Controls.Add(this.exitBtn);
-            this.panel2.Controls.Add(this.turnLbl);
+            this.panel2.Controls.Add(this.difficultyLbl);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1139, 79);
-            this.panel2.TabIndex = 1;
+            this.panel2.Size = new System.Drawing.Size(1139, 145);
+            this.panel2.TabIndex = 7;
             // 
             // miminiseBtn
             // 
@@ -123,31 +179,31 @@
             this.exitBtn.UseVisualStyleBackColor = false;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
-            // turnLbl
+            // difficultyLbl
             // 
-            this.turnLbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.difficultyLbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.turnLbl.BackColor = System.Drawing.Color.Transparent;
-            this.turnLbl.Font = new System.Drawing.Font("Kristen ITC", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.turnLbl.Location = new System.Drawing.Point(12, 12);
-            this.turnLbl.Name = "turnLbl";
-            this.turnLbl.Size = new System.Drawing.Size(1115, 56);
-            this.turnLbl.TabIndex = 1;
-            this.turnLbl.Text = "Turn: 0";
-            this.turnLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.difficultyLbl.BackColor = System.Drawing.Color.Transparent;
+            this.difficultyLbl.Font = new System.Drawing.Font("Kristen ITC", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.difficultyLbl.Location = new System.Drawing.Point(12, 9);
+            this.difficultyLbl.Name = "difficultyLbl";
+            this.difficultyLbl.Size = new System.Drawing.Size(1115, 56);
+            this.difficultyLbl.TabIndex = 1;
+            this.difficultyLbl.Text = "Difficulty: {cDifficulty}";
+            this.difficultyLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.MediumPurple;
+            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip1.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newGameToolStripMenuItem1,
             this.menuToolStripMenuItem1});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Location = new System.Drawing.Point(0, 145);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1139, 41);
-            this.menuStrip1.TabIndex = 6;
+            this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // newGameToolStripMenuItem1
@@ -191,60 +247,18 @@
             this.menuToolStripMenuItem1.Text = "Menu";
             this.menuToolStripMenuItem1.Click += new System.EventHandler(this.showMenu_Click);
             // 
-            // contextMenuStrip1
+            // turnLbl
             // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.newGameContextStrip,
-            this.menuContextStrip,
-            this.exitContextStrip});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(241, 127);
-            // 
-            // newGameContextStrip
-            // 
-            this.newGameContextStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.easyDifficultyToolStripMenuItem1,
-            this.normalToolStripMenuItem,
-            this.hardToolStripMenuItem});
-            this.newGameContextStrip.Name = "newGameContextStrip";
-            this.newGameContextStrip.Size = new System.Drawing.Size(170, 30);
-            this.newGameContextStrip.Text = "New Game";
-            // 
-            // easyDifficultyToolStripMenuItem1
-            // 
-            this.easyDifficultyToolStripMenuItem1.Name = "easyDifficultyToolStripMenuItem1";
-            this.easyDifficultyToolStripMenuItem1.Size = new System.Drawing.Size(155, 30);
-            this.easyDifficultyToolStripMenuItem1.Text = "Easy";
-            this.easyDifficultyToolStripMenuItem1.Click += new System.EventHandler(this.newEasyGameMenu_Click);
-            // 
-            // normalToolStripMenuItem
-            // 
-            this.normalToolStripMenuItem.Name = "normalToolStripMenuItem";
-            this.normalToolStripMenuItem.Size = new System.Drawing.Size(155, 30);
-            this.normalToolStripMenuItem.Text = "Normal";
-            this.normalToolStripMenuItem.Click += new System.EventHandler(this.newNormalGameMenu_Click);
-            // 
-            // hardToolStripMenuItem
-            // 
-            this.hardToolStripMenuItem.Name = "hardToolStripMenuItem";
-            this.hardToolStripMenuItem.Size = new System.Drawing.Size(155, 30);
-            this.hardToolStripMenuItem.Text = "Hard";
-            this.hardToolStripMenuItem.Click += new System.EventHandler(this.newHardGameMenu_Click);
-            // 
-            // menuContextStrip
-            // 
-            this.menuContextStrip.Name = "menuContextStrip";
-            this.menuContextStrip.Size = new System.Drawing.Size(240, 30);
-            this.menuContextStrip.Text = "Menu";
-            this.menuContextStrip.Click += new System.EventHandler(this.showMenu_Click);
-            // 
-            // exitContextStrip
-            // 
-            this.exitContextStrip.Name = "exitContextStrip";
-            this.exitContextStrip.Size = new System.Drawing.Size(170, 30);
-            this.exitContextStrip.Text = "Exit";
-            this.exitContextStrip.Click += new System.EventHandler(this.exitContextStrip_Click);
+            this.turnLbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.turnLbl.BackColor = System.Drawing.Color.Transparent;
+            this.turnLbl.Font = new System.Drawing.Font("Kristen ITC", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.turnLbl.Location = new System.Drawing.Point(12, 65);
+            this.turnLbl.Name = "turnLbl";
+            this.turnLbl.Size = new System.Drawing.Size(1115, 56);
+            this.turnLbl.TabIndex = 15;
+            this.turnLbl.Text = "Turn: 0";
+            this.turnLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
@@ -262,11 +276,10 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.gamePanel.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -275,22 +288,23 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Panel gamePanel;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button miminiseBtn;
-        private System.Windows.Forms.Button exitBtn;
-        private System.Windows.Forms.Label turnLbl;
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem newGameContextStrip;
         private System.Windows.Forms.ToolStripMenuItem menuContextStrip;
         private System.Windows.Forms.ToolStripMenuItem exitContextStrip;
-        private System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem easyDifficultyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem normalDifficultyToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hardDifficultyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem easyDifficultyToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem normalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hardToolStripMenuItem;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button miminiseBtn;
+        private System.Windows.Forms.Button exitBtn;
+        private System.Windows.Forms.Label difficultyLbl;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem easyDifficultyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem normalDifficultyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hardDifficultyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem1;
+        private System.Windows.Forms.Label turnLbl;
     }
 }
 

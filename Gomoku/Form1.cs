@@ -130,7 +130,10 @@ namespace Gomoku
         // Game Actions
         public void generateBoard()
         {
-            int startX = 60;
+
+            difficultyLbl.Text = $"{difficultyLbl.Text.Split(':')[0]}: {GameLogic.cDifficulty}";
+
+            int startX = 20;
             int startY = gamePanel.Width / 2;
             int btnHeight = 35;
             int btnWidth = 35;
@@ -183,7 +186,7 @@ namespace Gomoku
                 }
 
                 turnNumber = 0;
-                turnLbl.Text = turnStr + turnNumber;
+                difficultyLbl.Text = turnStr + turnNumber;
             }
         }
 
