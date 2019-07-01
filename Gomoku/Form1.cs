@@ -45,6 +45,9 @@ namespace Gomoku
             PLAYER_DIE = $"{IMAGE_PATH}\\black_die.png";
             COMPUTER_DIE = $"{IMAGE_PATH}\\white_die.png";
 
+            menuTableLayout.BackColor = Color.FromArgb(100, Color.LightGray);
+            menuTableLayout.Height = menuStrip.Height;
+
             GameLogic = new GameLogic(difficulty);
             Scoreboard = new Scoreboard();
             generateBoard();

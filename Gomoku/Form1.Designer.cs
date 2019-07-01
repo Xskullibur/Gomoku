@@ -31,7 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.menuTableLayout = new System.Windows.Forms.TableLayoutPanel();
             this.gamePanel = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.turnLbl = new System.Windows.Forms.Label();
+            this.miminiseBtn = new System.Windows.Forms.Button();
+            this.exitBtn = new System.Windows.Forms.Button();
+            this.difficultyLbl = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.newGameContextStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.easyDifficultyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,28 +45,24 @@
             this.hardToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuContextStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.exitContextStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.miminiseBtn = new System.Windows.Forms.Button();
-            this.exitBtn = new System.Windows.Forms.Button();
-            this.difficultyLbl = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.newGameToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.easyDifficultyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.normalDifficultyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hardDifficultyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.turnLbl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
+            this.menuTableLayout.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.Controls.Add(this.gamePanel);
-            this.panel1.Controls.Add(this.menuStrip1);
+            this.panel1.Controls.Add(this.menuTableLayout);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -68,16 +70,103 @@
             this.panel1.Size = new System.Drawing.Size(1139, 637);
             this.panel1.TabIndex = 2;
             // 
+            // menuTableLayout
+            // 
+            this.menuTableLayout.BackColor = System.Drawing.Color.Transparent;
+            this.menuTableLayout.ColumnCount = 3;
+            this.menuTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.menuTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.menuTableLayout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.menuTableLayout.Controls.Add(this.menuStrip, 1, 0);
+            this.menuTableLayout.Dock = System.Windows.Forms.DockStyle.Top;
+            this.menuTableLayout.Location = new System.Drawing.Point(0, 130);
+            this.menuTableLayout.Name = "menuTableLayout";
+            this.menuTableLayout.RowCount = 1;
+            this.menuTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.menuTableLayout.Size = new System.Drawing.Size(1139, 54);
+            this.menuTableLayout.TabIndex = 9;
+            // 
             // gamePanel
             // 
             this.gamePanel.AutoScroll = true;
             this.gamePanel.BackColor = System.Drawing.Color.Transparent;
             this.gamePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.gamePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gamePanel.Location = new System.Drawing.Point(0, 186);
+            this.gamePanel.Location = new System.Drawing.Point(0, 184);
             this.gamePanel.Name = "gamePanel";
-            this.gamePanel.Size = new System.Drawing.Size(1139, 451);
+            this.gamePanel.Size = new System.Drawing.Size(1139, 453);
             this.gamePanel.TabIndex = 4;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.Controls.Add(this.turnLbl);
+            this.panel2.Controls.Add(this.miminiseBtn);
+            this.panel2.Controls.Add(this.exitBtn);
+            this.panel2.Controls.Add(this.difficultyLbl);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1139, 130);
+            this.panel2.TabIndex = 7;
+            // 
+            // turnLbl
+            // 
+            this.turnLbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.turnLbl.BackColor = System.Drawing.Color.Transparent;
+            this.turnLbl.Font = new System.Drawing.Font("Kristen ITC", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.turnLbl.Location = new System.Drawing.Point(12, 65);
+            this.turnLbl.Name = "turnLbl";
+            this.turnLbl.Size = new System.Drawing.Size(1115, 56);
+            this.turnLbl.TabIndex = 15;
+            this.turnLbl.Text = "Turn: 0";
+            this.turnLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // miminiseBtn
+            // 
+            this.miminiseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.miminiseBtn.BackColor = System.Drawing.Color.Teal;
+            this.miminiseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.miminiseBtn.Font = new System.Drawing.Font("Kristen ITC", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.miminiseBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.miminiseBtn.Location = new System.Drawing.Point(1041, 12);
+            this.miminiseBtn.Name = "miminiseBtn";
+            this.miminiseBtn.Size = new System.Drawing.Size(40, 40);
+            this.miminiseBtn.TabIndex = 14;
+            this.miminiseBtn.TabStop = false;
+            this.miminiseBtn.Text = "_";
+            this.miminiseBtn.UseVisualStyleBackColor = false;
+            this.miminiseBtn.Click += new System.EventHandler(this.miminiseBtn_Click);
+            // 
+            // exitBtn
+            // 
+            this.exitBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.exitBtn.BackColor = System.Drawing.Color.Red;
+            this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.exitBtn.Font = new System.Drawing.Font("Kristen ITC", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.exitBtn.Location = new System.Drawing.Point(1087, 12);
+            this.exitBtn.Name = "exitBtn";
+            this.exitBtn.Size = new System.Drawing.Size(40, 40);
+            this.exitBtn.TabIndex = 11;
+            this.exitBtn.TabStop = false;
+            this.exitBtn.Text = "X";
+            this.exitBtn.UseVisualStyleBackColor = false;
+            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
+            // 
+            // difficultyLbl
+            // 
+            this.difficultyLbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.difficultyLbl.BackColor = System.Drawing.Color.Transparent;
+            this.difficultyLbl.Font = new System.Drawing.Font("Kristen ITC", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.difficultyLbl.Location = new System.Drawing.Point(12, 9);
+            this.difficultyLbl.Name = "difficultyLbl";
+            this.difficultyLbl.Size = new System.Drawing.Size(1115, 56);
+            this.difficultyLbl.TabIndex = 1;
+            this.difficultyLbl.Text = "Difficulty: {cDifficulty}";
+            this.difficultyLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // contextMenuStrip1
             // 
@@ -134,80 +223,23 @@
             this.exitContextStrip.Text = "Exit";
             this.exitContextStrip.Click += new System.EventHandler(this.exitContextStrip_Click);
             // 
-            // panel2
+            // menuStrip
             // 
-            this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.Controls.Add(this.turnLbl);
-            this.panel2.Controls.Add(this.miminiseBtn);
-            this.panel2.Controls.Add(this.exitBtn);
-            this.panel2.Controls.Add(this.difficultyLbl);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1139, 145);
-            this.panel2.TabIndex = 7;
-            // 
-            // miminiseBtn
-            // 
-            this.miminiseBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.miminiseBtn.BackColor = System.Drawing.Color.Teal;
-            this.miminiseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.miminiseBtn.Font = new System.Drawing.Font("Kristen ITC", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.miminiseBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.miminiseBtn.Location = new System.Drawing.Point(1041, 12);
-            this.miminiseBtn.Name = "miminiseBtn";
-            this.miminiseBtn.Size = new System.Drawing.Size(40, 40);
-            this.miminiseBtn.TabIndex = 14;
-            this.miminiseBtn.TabStop = false;
-            this.miminiseBtn.Text = "_";
-            this.miminiseBtn.UseVisualStyleBackColor = false;
-            this.miminiseBtn.Click += new System.EventHandler(this.miminiseBtn_Click);
-            // 
-            // exitBtn
-            // 
-            this.exitBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.exitBtn.BackColor = System.Drawing.Color.Red;
-            this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.exitBtn.Font = new System.Drawing.Font("Kristen ITC", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.exitBtn.Location = new System.Drawing.Point(1087, 12);
-            this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(40, 40);
-            this.exitBtn.TabIndex = 11;
-            this.exitBtn.TabStop = false;
-            this.exitBtn.Text = "X";
-            this.exitBtn.UseVisualStyleBackColor = false;
-            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
-            // 
-            // difficultyLbl
-            // 
-            this.difficultyLbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.difficultyLbl.BackColor = System.Drawing.Color.Transparent;
-            this.difficultyLbl.Font = new System.Drawing.Font("Kristen ITC", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.difficultyLbl.Location = new System.Drawing.Point(12, 9);
-            this.difficultyLbl.Name = "difficultyLbl";
-            this.difficultyLbl.Size = new System.Drawing.Size(1115, 56);
-            this.difficultyLbl.TabIndex = 1;
-            this.difficultyLbl.Text = "Difficulty: {cDifficulty}";
-            this.difficultyLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
-            this.menuStrip1.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.BackColor = System.Drawing.Color.Transparent;
+            this.menuStrip.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(24, 24);
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newGameToolStripMenuItem1,
             this.menuToolStripMenuItem1});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 145);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1139, 41);
-            this.menuStrip1.TabIndex = 8;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(351, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(436, 41);
+            this.menuStrip.TabIndex = 9;
+            this.menuStrip.Text = "menuStrip1";
             // 
             // newGameToolStripMenuItem1
             // 
+            this.newGameToolStripMenuItem1.BackColor = System.Drawing.Color.Transparent;
             this.newGameToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.easyDifficultyToolStripMenuItem,
             this.normalDifficultyToolStripMenuItem,
@@ -242,23 +274,11 @@
             // 
             // menuToolStripMenuItem1
             // 
+            this.menuToolStripMenuItem1.BackColor = System.Drawing.Color.Transparent;
             this.menuToolStripMenuItem1.Name = "menuToolStripMenuItem1";
             this.menuToolStripMenuItem1.Size = new System.Drawing.Size(95, 37);
             this.menuToolStripMenuItem1.Text = "Menu";
             this.menuToolStripMenuItem1.Click += new System.EventHandler(this.showMenu_Click);
-            // 
-            // turnLbl
-            // 
-            this.turnLbl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.turnLbl.BackColor = System.Drawing.Color.Transparent;
-            this.turnLbl.Font = new System.Drawing.Font("Kristen ITC", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.turnLbl.Location = new System.Drawing.Point(12, 65);
-            this.turnLbl.Name = "turnLbl";
-            this.turnLbl.Size = new System.Drawing.Size(1115, 56);
-            this.turnLbl.TabIndex = 15;
-            this.turnLbl.Text = "Turn: 0";
-            this.turnLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Form1
             // 
@@ -275,11 +295,12 @@
             this.Text = "Gomoku";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.menuTableLayout.ResumeLayout(false);
+            this.menuTableLayout.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -298,13 +319,14 @@
         private System.Windows.Forms.Button miminiseBtn;
         private System.Windows.Forms.Button exitBtn;
         private System.Windows.Forms.Label difficultyLbl;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.Label turnLbl;
+        private System.Windows.Forms.TableLayoutPanel menuTableLayout;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem newGameToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem easyDifficultyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem normalDifficultyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hardDifficultyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem1;
-        private System.Windows.Forms.Label turnLbl;
     }
 }
 
