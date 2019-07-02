@@ -11,15 +11,18 @@ namespace Gomoku
     {
         string scoreFolder = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory().ToString()).ToString()) + "\\score";
 
+        Users currentUser;
+
         string highscoreFile;
         int maxScore = 113;
         int easyScoreMultiplier = 20;
         int normalScoreMultiplier = 40;
         int hardScoreMultiplier = 60;
 
-        public Scoreboard()
+        public Scoreboard(Users user)
         {
             highscoreFile = $"{scoreFolder}//highscore.txt";
+            currentUser = user;
 
             if (!File.Exists(highscoreFile))
             {
@@ -50,10 +53,10 @@ namespace Gomoku
         public void updateRecords(int turns, DIFFICULTY cDifficulty, string name)
         {
             int score = getScore(turns, cDifficulty);
-            string[] scoreboard = File.ReadAllLines(highscoreFile);
+            List<string> scoreboard = File.ReadAllLines(highscoreFile).ToList();
             bool playerFound = false;
 
-            for (int i = 0; i < scoreboard.Length; i++)
+            for (int i = 0; i < scoreboard.Count; i++)
             {
                 if (scoreboard[i].Contains(name))
                 {
@@ -67,10 +70,8 @@ namespace Gomoku
 
             if (playerFound == false)
             {
-                using (StreamWriter file = new StreamWriter(highscoreFile))
-                {
-                    file.WriteLine($"{name}: {score}");
-                }
+                scoreboard.Add($"{currentUser.playerName}: {score}");
+                File.WriteAllLines(highscoreFile, scoreboard);
             }
         }
     }

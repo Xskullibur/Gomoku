@@ -12,31 +12,34 @@ namespace Gomoku
 {
     public partial class victoryForm : Form
     {
-        public enum users
+        public enum PLAYER
         {
             player,
             computer
         }
 
-        const string playerName = "Player";
         const string computerName = "Computer";
         DIFFICULTY cDifficulty;
-        Scoreboard scoreboard = new Scoreboard();
+        Scoreboard scoreboard;
+        Users currentUser;
+
         Form1 form;
 
-        public victoryForm(users users, int turns, DIFFICULTY difficulty, Form1 currentForm)
+        public victoryForm(PLAYER player, int turns, DIFFICULTY difficulty, Form1 currentForm, Users user)
         {
             InitializeComponent();
             form = currentForm;
             cDifficulty = difficulty;
+            currentUser = user;
+            scoreboard = new Scoreboard(currentUser);
 
-            switch (users)
+            switch (player)
             {
-                case users.player:
-                    victoryLbl.Text = $"{playerName} {victoryLbl.Text}";
-                    scoreboard.updateRecords(turns, difficulty, "Test Player");
+                case PLAYER.player:
+                    victoryLbl.Text = $"{currentUser.playerName} {victoryLbl.Text}";
+                    scoreboard.updateRecords(turns, difficulty, currentUser.playerName);
                     break;
-                case users.computer:
+                case PLAYER.computer:
                     victoryLbl.Text = $"{computerName} {victoryLbl.Text}";
                     break;
                 default:
@@ -62,7 +65,7 @@ namespace Gomoku
         {
             form.Close();
             this.Hide();
-            GameSettings gameSettings = new GameSettings();
+            GameSettings gameSettings = new GameSettings(currentUser);
             gameSettings.ShowDialog();
             this.Close();
         }

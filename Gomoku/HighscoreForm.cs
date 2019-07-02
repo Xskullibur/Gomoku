@@ -21,7 +21,7 @@ namespace Gomoku
             normalPanel.Height = panelHeight;
             hardPanel.Height = panelHeight;
 
-            Scoreboard scoreboard = new Scoreboard();
+            //Scoreboard scoreboard = new Scoreboard();
         }
     }
 }

@@ -12,19 +12,36 @@ namespace Gomoku
 {
     public partial class LoginForm : Form
     {
-        public LoginForm()
+
+        Users newUser;
+
+        public LoginForm(Users user)
         {
             InitializeComponent();
+            newUser = user;
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
+            newUser.playerName = nameTxt.Text;
+            this.Close();
+        }
 
+        private void loginBtn_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetterOrDigit(e.KeyChar) || e.KeyChar == '\b')
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -35,6 +35,8 @@
             this.difficultyCombo = new System.Windows.Forms.ComboBox();
             this.minimizeBtn = new System.Windows.Forms.Button();
             this.scoreBtn = new System.Windows.Forms.Button();
+            this.loginBtn = new System.Windows.Forms.Button();
+            this.nameLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // exitBtn
@@ -128,12 +130,42 @@
             this.scoreBtn.UseVisualStyleBackColor = false;
             this.scoreBtn.Click += new System.EventHandler(this.scoreBtn_Click);
             // 
+            // loginBtn
+            // 
+            this.loginBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.loginBtn.BackColor = System.Drawing.Color.Transparent;
+            this.loginBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("loginBtn.BackgroundImage")));
+            this.loginBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.loginBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.loginBtn.Font = new System.Drawing.Font("Kristen ITC", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginBtn.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.loginBtn.Location = new System.Drawing.Point(12, 12);
+            this.loginBtn.Name = "loginBtn";
+            this.loginBtn.Size = new System.Drawing.Size(60, 60);
+            this.loginBtn.TabIndex = 15;
+            this.loginBtn.TabStop = false;
+            this.loginBtn.UseVisualStyleBackColor = false;
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
+            // 
+            // nameLbl
+            // 
+            this.nameLbl.AutoSize = true;
+            this.nameLbl.BackColor = System.Drawing.Color.Transparent;
+            this.nameLbl.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLbl.Location = new System.Drawing.Point(78, 24);
+            this.nameLbl.Name = "nameLbl";
+            this.nameLbl.Size = new System.Drawing.Size(160, 33);
+            this.nameLbl.TabIndex = 16;
+            this.nameLbl.Text = "Anonymous";
+            // 
             // GameSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.nameLbl);
+            this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.scoreBtn);
             this.Controls.Add(this.minimizeBtn);
             this.Controls.Add(this.startBtn);
@@ -159,5 +191,7 @@
         private System.Windows.Forms.ComboBox difficultyCombo;
         private System.Windows.Forms.Button minimizeBtn;
         private System.Windows.Forms.Button scoreBtn;
+        private System.Windows.Forms.Button loginBtn;
+        private System.Windows.Forms.Label nameLbl;
     }
 }
