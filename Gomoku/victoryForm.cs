@@ -36,11 +36,11 @@ namespace Gomoku
             switch (player)
             {
                 case PLAYER.player:
-                    victoryLbl.Text = $"{currentUser.playerName} {victoryLbl.Text}";
+                    victoryLbl.Text = $"{currentUser.playerName}'s {victoryLbl.Text}";
                     scoreboard.updateRecords(turns, difficulty, currentUser.playerName);
                     break;
                 case PLAYER.computer:
-                    victoryLbl.Text = $"{computerName} {victoryLbl.Text}";
+                    victoryLbl.Text = $"{computerName}'s {victoryLbl.Text}";
                     break;
                 default:
                     victoryLbl.Text = "Victory!";

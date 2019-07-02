@@ -63,7 +63,7 @@ namespace Gomoku
 
         private void scoreBtn_Click(object sender, EventArgs e)
         {
-            HighscoreForm highscoreForm = new HighscoreForm();
+            HighscoreForm highscoreForm = new HighscoreForm(currentUser);
             highscoreForm.Show();
         }
 

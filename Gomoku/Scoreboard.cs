@@ -74,5 +74,31 @@ namespace Gomoku
                 File.WriteAllLines(highscoreFile, scoreboard);
             }
         }
+
+        public List<string> getAllHighscore()
+        {
+            string[] defaultFile = File.ReadAllLines(highscoreFile);
+            List<string> highscore = defaultFile.OrderByDescending(x => Convert.ToInt32(x.Split(':')[1])).ToList();
+
+            for (int i = 0; i < highscore.Count; i++)
+            {
+                highscore[i] = $"{i+1}) {highscore[i]}";
+            }
+
+            return highscore;
+        }
+
+        public string getUserScore()
+        {
+            foreach (var item in File.ReadAllLines(highscoreFile))
+            {
+                if (item.Contains(currentUser.playerName))
+                {
+                    return item;
+                }
+            }
+
+            return $"{currentUser.playerName}: 0";
+        }
     }
 }
