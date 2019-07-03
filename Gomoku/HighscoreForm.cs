@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,16 +13,28 @@ namespace Gomoku
 {
     public partial class HighscoreForm : Form
     {
-        public HighscoreForm()
+        public HighscoreForm(Users user)
         {
             InitializeComponent();
 
             int panelHeight = mainPanel.Height / 3;
-            easyPanel.Height = panelHeight;
-            normalPanel.Height = panelHeight;
-            hardPanel.Height = panelHeight;
 
-            Scoreboard scoreboard = new Scoreboard();
+            Scoreboard scoreboard = new Scoreboard(user);
+            userRankingLbl.Text = scoreboard.getUserScore();
+
+            string[] highscore = scoreboard.getAllHighscore().ToArray();
+
+            for (int i = 0; i < highscore.Length; i++)
+            {
+                rankingList.Items.Add(highscore[i]);
+
+                if (i == 0 || i == 1 || i == 2)
+                {
+                    rankingList.Items[i].ForeColor = Color.HotPink;
+                }
+
+            }
+
         }
     }
 }

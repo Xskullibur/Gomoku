@@ -7,12 +7,14 @@ using System.Windows.Forms;
 
 namespace Gomoku
 {
-    class Users
+    public class Users
     {
 
-        public Users()
-        {
+        public string playerName;
 
+        public Users(string setName = "Anonymous")
+        {
+            playerName = setName;
         }
 
     }

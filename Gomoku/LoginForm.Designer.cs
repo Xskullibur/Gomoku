@@ -72,9 +72,10 @@
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(120, 40);
             this.loginBtn.TabIndex = 19;
-            this.loginBtn.Text = "Login";
+            this.loginBtn.Text = "Submit";
             this.loginBtn.UseVisualStyleBackColor = false;
             this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
+            this.loginBtn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.loginBtn_KeyPress);
             // 
             // nameTxt
             // 

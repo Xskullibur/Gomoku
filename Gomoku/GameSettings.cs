@@ -15,17 +15,27 @@ namespace Gomoku
         public GameSettings refGameSettings { get; set; }
 
         DIFFICULTY cDifficulty = new DIFFICULTY();
-        Users users;
+        Users currentUser = new Users();
 
+
+        // Constructors
         public GameSettings()
         {
             InitializeComponent();
-            Scoreboard scoreboard = new Scoreboard();
+            Scoreboard scoreboard = new Scoreboard(currentUser);
+        }
+
+        public GameSettings(Users user)
+        {
+            InitializeComponent();
+            Scoreboard scoreboard = new Scoreboard(currentUser);
+            currentUser = user;
         }
 
         private void GameSettings_Load(object sender, EventArgs e)
         {
             difficultyCombo.DataSource = Enum.GetValues(typeof(DIFFICULTY));
+            nameLbl.Text = currentUser.playerName;
         }
 
         private void difficultyCombo_SelectedIndexChanged(object sender, EventArgs e)
@@ -35,7 +45,7 @@ namespace Gomoku
 
         private void startBtn_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1(cDifficulty);
+            Form1 form1 = new Form1(cDifficulty, currentUser);
             this.Hide();
             form1.ShowDialog();
             this.Close();
@@ -53,8 +63,15 @@ namespace Gomoku
 
         private void scoreBtn_Click(object sender, EventArgs e)
         {
-            HighscoreForm highscoreForm = new HighscoreForm();
+            HighscoreForm highscoreForm = new HighscoreForm(currentUser);
             highscoreForm.Show();
+        }
+
+        private void loginBtn_Click(object sender, EventArgs e)
+        {
+            LoginForm loginForm = new LoginForm(currentUser);
+            loginForm.ShowDialog();
+            nameLbl.Text = currentUser.playerName;
         }
     }
 }

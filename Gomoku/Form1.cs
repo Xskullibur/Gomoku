@@ -16,6 +16,9 @@ namespace Gomoku
         // Game Logic Class
         GameLogic GameLogic;
 
+        // Logged in user
+        Users currentUser;
+
         // Img Folder Path
         string IMAGE_PATH = Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory().ToString()).ToString()) + "\\img";
 
@@ -35,7 +38,7 @@ namespace Gomoku
 
         string[,] GAME_BOARD = new string[BOARD_DIMENTION, BOARD_DIMENTION];
 
-        public Form1(DIFFICULTY difficulty)
+        public Form1(DIFFICULTY difficulty, Users user)
         {
             InitializeComponent();
 
@@ -46,6 +49,7 @@ namespace Gomoku
             menuTableLayout.Height = menuStrip.Height;
 
             GameLogic = new GameLogic(difficulty);
+            currentUser = user;
             generateBoard();
         }
 
@@ -88,7 +92,7 @@ namespace Gomoku
             // Check Victory
             if (GameLogic.winCondition(GAME_BOARD, PLAYER_SYMBOL))
             {
-                victoryForm victoryForm = new victoryForm(victoryForm.users.player, turnNumber, GameLogic.cDifficulty, this);
+                victoryForm victoryForm = new victoryForm(victoryForm.PLAYER.player, turnNumber, GameLogic.cDifficulty, this, currentUser);
                 victoryForm.ShowDialog();
             }
             else
@@ -211,7 +215,7 @@ namespace Gomoku
                 turnLbl.Text = turnStr + turnNumber;
                 GameLogic = new GameLogic(setDifficulty);
                 difficultyLbl.Text = $"{difficultyLbl.Text.Split(':')[0]}: {GameLogic.cDifficulty}";
-                (sender as Form).Close();
+                (sender as victoryForm).Close();
             }
         }
 
@@ -261,7 +265,7 @@ namespace Gomoku
             // Check Win Condition
             if (GameLogic.winCondition(GAME_BOARD, COMPUTER_SYMBOL))
             {
-                victoryForm victoryForm = new victoryForm(victoryForm.users.computer, turnNumber, GameLogic.cDifficulty, this);
+                victoryForm victoryForm = new victoryForm(victoryForm.PLAYER.computer, turnNumber, GameLogic.cDifficulty, this, currentUser);
                 victoryForm.ShowDialog();
             }
         }
@@ -276,7 +280,7 @@ namespace Gomoku
             if (MessageBox.Show("Are you sure?", "Return to Menu", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation) == DialogResult.Yes)
             {
                 this.Hide();
-                GameSettings gameSettings = new GameSettings();
+                GameSettings gameSettings = new GameSettings(currentUser);
                 gameSettings.ShowDialog();
                 this.Close();
             }
