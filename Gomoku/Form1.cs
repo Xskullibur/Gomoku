@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Media;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -35,6 +36,9 @@ namespace Gomoku
         // Turn Number
         string turnStr = "Turn: ";
         int turnNumber = 0;
+
+        // Media Player
+        SoundPlayer soundPlayer = new SoundPlayer(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory().ToString()).ToString()) + "\\sounds\\Place_Die.wav");
 
         string[,] GAME_BOARD = new string[BOARD_DIMENTION, BOARD_DIMENTION];
 
@@ -88,6 +92,9 @@ namespace Gomoku
             btn.BackgroundImage = Image.FromFile(PLAYER_DIE);
             btn.BackgroundImageLayout = ImageLayout.Stretch;
             btn.Enabled = false;
+
+            // Play Sound
+            soundPlayer.Play();
 
             // Check Victory
             if (GameLogic.winCondition(GAME_BOARD, PLAYER_SYMBOL))
