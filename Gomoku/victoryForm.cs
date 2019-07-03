@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,6 +26,9 @@ namespace Gomoku
         Scoreboard scoreboard = new Scoreboard();
         Form1 form;
 
+        SoundPlayer victoryPlayer = new SoundPlayer(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory().ToString()).ToString()) + "\\sound\\Victory.wav");
+        SoundPlayer failurePlayer = new SoundPlayer(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory().ToString()).ToString()) + "\\sound\\Failure.wav");
+
         public victoryForm(users users, int turns, DIFFICULTY difficulty, Form1 currentForm)
         {
             InitializeComponent();
@@ -35,9 +40,13 @@ namespace Gomoku
                 case users.player:
                     victoryLbl.Text = $"{playerName} {victoryLbl.Text}";
                     scoreboard.updateRecords(turns, difficulty, "Test Player");
+                    victoryPlayer.Play();
                     break;
                 case users.computer:
                     victoryLbl.Text = $"{computerName} {victoryLbl.Text}";
+                    nxtLvlBtn.BackColor = Color.FromArgb(150, Color.Violet);
+                    nxtLvlBtn.Enabled = false;
+                    failurePlayer.Play();
                     break;
                 default:
                     victoryLbl.Text = "Victory!";

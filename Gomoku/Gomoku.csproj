@@ -121,6 +121,8 @@
   <ItemGroup>
     <Content Include="img\black_die.png" />
     <Content Include="img\white_die.png" />
+    <Content Include="sound\Place_Die.wav" />
+    <Content Include="sound\Victory.wav" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="score\" />
