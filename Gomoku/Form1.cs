@@ -5,9 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Media;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -34,9 +32,6 @@ namespace Gomoku
         // Turn Number
         string turnStr = "Turn: ";
         int turnNumber = 0;
-
-        // Media Player
-        SoundPlayer soundPlayer = new SoundPlayer(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory().ToString()).ToString()) + "\\sound\\Place_Die.wav");
 
         string[,] GAME_BOARD = new string[BOARD_DIMENTION, BOARD_DIMENTION];
 
@@ -71,8 +66,6 @@ namespace Gomoku
 
         private void button_click(object sender, EventArgs e)
         {
-            soundPlayer.Play();
-
             // Update Turn
             turnNumber++;
             turnLbl.Text = turnStr + turnNumber;
