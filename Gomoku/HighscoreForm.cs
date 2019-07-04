@@ -30,7 +30,20 @@ namespace Gomoku
 
                 if (i == 0 || i == 1 || i == 2)
                 {
-                    rankingList.Items[i].ForeColor = Color.HotPink;
+
+                    if (i == 0)
+                    {
+                        rankingList.Items[i].ForeColor = Color.Gold;
+                    }
+                    else if (i == 1)
+                    {
+                        rankingList.Items[i].ForeColor = Color.Gray;
+                    }
+                    else if (i == 2)
+                    {
+                        rankingList.Items[i].ForeColor = Color.Brown;
+                    }
+
                 }
 
             }

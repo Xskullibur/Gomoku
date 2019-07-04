@@ -1,2 +1,5 @@
 Nosla: 8400
 Anonymous: 14780
+Test Player: 1000
+Test Player 2: 500
+Test Player 3: 1300

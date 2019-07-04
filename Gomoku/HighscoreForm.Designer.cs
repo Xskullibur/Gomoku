@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HighscoreForm));
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.userRankingLbl = new System.Windows.Forms.Label();
             this.rankingList = new System.Windows.Forms.ListView();
+            this.userRankingLbl = new System.Windows.Forms.Label();
             this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,6 +48,19 @@
             this.mainPanel.Size = new System.Drawing.Size(378, 603);
             this.mainPanel.TabIndex = 16;
             // 
+            // rankingList
+            // 
+            this.rankingList.BackColor = System.Drawing.Color.Linen;
+            this.rankingList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rankingList.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rankingList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
+            this.rankingList.Location = new System.Drawing.Point(0, 50);
+            this.rankingList.Name = "rankingList";
+            this.rankingList.Size = new System.Drawing.Size(378, 553);
+            this.rankingList.TabIndex = 1;
+            this.rankingList.UseCompatibleStateImageBehavior = false;
+            this.rankingList.View = System.Windows.Forms.View.List;
+            // 
             // userRankingLbl
             // 
             this.userRankingLbl.Dock = System.Windows.Forms.DockStyle.Top;
@@ -58,18 +71,6 @@
             this.userRankingLbl.TabIndex = 0;
             this.userRankingLbl.Text = "label1";
             this.userRankingLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // rankingList
-            // 
-            this.rankingList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rankingList.Font = new System.Drawing.Font("Kristen ITC", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rankingList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.None;
-            this.rankingList.Location = new System.Drawing.Point(0, 50);
-            this.rankingList.Name = "rankingList";
-            this.rankingList.Size = new System.Drawing.Size(378, 553);
-            this.rankingList.TabIndex = 1;
-            this.rankingList.UseCompatibleStateImageBehavior = false;
-            this.rankingList.View = System.Windows.Forms.View.List;
             // 
             // HighscoreForm
             // 
