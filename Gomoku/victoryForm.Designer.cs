@@ -34,11 +34,12 @@
             this.menuBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.viewBoardBtn = new System.Windows.Forms.Button();
             this.nxtLvlBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.victoryLbl = new System.Windows.Forms.Label();
             this.turnLbl = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -103,6 +104,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.viewBoardBtn, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.newGameBtn, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.nxtLvlBtn, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.menuBtn, 1, 0);
@@ -115,6 +117,22 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 171);
             this.tableLayoutPanel1.TabIndex = 10;
+            // 
+            // viewBoardBtn
+            // 
+            this.viewBoardBtn.AutoSize = true;
+            this.viewBoardBtn.BackColor = System.Drawing.Color.DeepPink;
+            this.viewBoardBtn.Dock = System.Windows.Forms.DockStyle.Right;
+            this.viewBoardBtn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.viewBoardBtn.Font = new System.Drawing.Font("Kristen ITC", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.viewBoardBtn.Location = new System.Drawing.Point(687, 107);
+            this.viewBoardBtn.Name = "viewBoardBtn";
+            this.viewBoardBtn.Size = new System.Drawing.Size(110, 61);
+            this.viewBoardBtn.TabIndex = 14;
+            this.viewBoardBtn.Text = "View Board";
+            this.viewBoardBtn.UseVisualStyleBackColor = false;
+            this.viewBoardBtn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.viewBoardBtn_MouseDown);
+            this.viewBoardBtn.MouseUp += new System.Windows.Forms.MouseEventHandler(this.viewBoardBtn_MouseUp);
             // 
             // nxtLvlBtn
             // 
@@ -141,6 +159,21 @@
             this.panel2.Size = new System.Drawing.Size(800, 279);
             this.panel2.TabIndex = 11;
             // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.victoryLbl, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 125);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(800, 100);
+            this.tableLayoutPanel2.TabIndex = 13;
+            // 
             // victoryLbl
             // 
             this.victoryLbl.AutoSize = true;
@@ -148,9 +181,10 @@
             this.victoryLbl.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.victoryLbl.Font = new System.Drawing.Font("Kristen ITC", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.victoryLbl.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.victoryLbl.Location = new System.Drawing.Point(237, 0);
+            this.victoryLbl.Location = new System.Drawing.Point(227, 0);
             this.victoryLbl.Name = "victoryLbl";
-            this.victoryLbl.Size = new System.Drawing.Size(325, 98);
+            this.victoryLbl.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.victoryLbl.Size = new System.Drawing.Size(345, 98);
             this.victoryLbl.TabIndex = 11;
             this.victoryLbl.Text = "Victory!";
             this.victoryLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -167,21 +201,6 @@
             this.turnLbl.TabIndex = 12;
             this.turnLbl.Text = "Score: ~";
             this.turnLbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.victoryLbl, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 125);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(800, 100);
-            this.tableLayoutPanel2.TabIndex = 13;
             // 
             // victoryForm
             // 
@@ -200,6 +219,7 @@
             this.Text = "victoryForm";
             this.panel1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -218,5 +238,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Button nxtLvlBtn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Button viewBoardBtn;
     }
 }

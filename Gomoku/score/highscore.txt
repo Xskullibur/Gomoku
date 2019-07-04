@@ -1,5 +1,7 @@
 Nosla: 20740
-Anonymous: 14780
+Anonymous: 32040
 Test Player: 1000
 Test Player 2: 500
 Test Player 3: 1300
+Senpai: 6000
+Hsien Xiang: 6120

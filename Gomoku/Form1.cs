@@ -142,10 +142,10 @@ namespace Gomoku
             difficultyLbl.Text = $"{difficultyLbl.Text.Split(':')[0]}: {GameLogic.cDifficulty}";
 
             int startX = 20;
-            int startY = gamePanel.Width / 2;
             int btnHeight = 35;
             int btnWidth = 35;
             int dist = 10;
+            int startY = gamePanel.Width / 2 - dist;
 
             for (int x = 0; x < BOARD_DIMENTION; x++)
             {

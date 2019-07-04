@@ -22,6 +22,9 @@ namespace Gomoku
 
         const string computerName = "Computer";
         DIFFICULTY cDifficulty;
+
+        bool viewBoard = false;
+
         Scoreboard scoreboard;
         Users currentUser;
         SoundPlayer victorySound = new SoundPlayer(Directory.GetParent(Directory.GetParent(Directory.GetCurrentDirectory().ToString()).ToString()) + "\\sounds\\Victory.wav");
@@ -95,6 +98,24 @@ namespace Gomoku
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void viewBoardBtn_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (viewBoard == false)
+            {
+                this.Opacity = .05;
+                viewBoard = true;
+            }
+        }
+
+        private void viewBoardBtn_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (viewBoard == true)
+            {
+                this.Opacity = 1;
+                viewBoard = false;
             }
         }
     }
