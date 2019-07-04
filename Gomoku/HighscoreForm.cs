@@ -33,7 +33,7 @@ namespace Gomoku
 
                     if (i == 0)
                     {
-                        rankingList.Items[i].ForeColor = Color.Gold;
+                        rankingList.Items[i].ForeColor = Color.Goldenrod;
                     }
                     else if (i == 1)
                     {

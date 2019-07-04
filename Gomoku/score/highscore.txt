@@ -1,4 +1,4 @@
-Nosla: 8400
+Nosla: 20740
 Anonymous: 14780
 Test Player: 1000
 Test Player 2: 500
