@@ -75,7 +75,6 @@
             this.loginBtn.Text = "Submit";
             this.loginBtn.UseVisualStyleBackColor = false;
             this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
-            this.loginBtn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.loginBtn_KeyPress);
             // 
             // nameTxt
             // 
@@ -84,6 +83,7 @@
             this.nameTxt.Name = "nameTxt";
             this.nameTxt.Size = new System.Drawing.Size(275, 40);
             this.nameTxt.TabIndex = 18;
+            this.nameTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameTxt_KeyPress);
             // 
             // LoginForm
             // 

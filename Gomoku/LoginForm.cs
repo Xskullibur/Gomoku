@@ -32,7 +32,7 @@ namespace Gomoku
             this.Close();
         }
 
-        private void loginBtn_KeyPress(object sender, KeyPressEventArgs e)
+        private void nameTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsLetterOrDigit(e.KeyChar) || e.KeyChar == '\b')
             {
