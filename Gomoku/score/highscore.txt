@@ -4,4 +4,4 @@ Test Player: 1000
 Test Player 2: 500
 Test Player 3: 1300
 Senpai: 6000
-Hsien Xiang: 6120
+Tuturu: 6120
